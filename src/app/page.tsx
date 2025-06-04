@@ -50,7 +50,7 @@ export default function HomePage() {
     <div className="flex flex-col">
       {/* Hero Section */}
       <Section 
-        className="bg-gradient-to-br from-primary/10 via-background to-background pt-20 md:pt-32 pb-40" // Adjusted pb-40 for angledBottom
+        className="bg-gradient-to-br from-primary/10 via-background to-background pt-20 md:pt-32" // Removed pb-40, will be handled by angledBottom's dynamic padding
         angledBottom
       >
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 grid md:grid-cols-2 gap-8 items-center">

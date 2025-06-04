@@ -33,16 +33,16 @@ export function Section({
   const angledTopGeometryClass = angledTop ? 'angled-section-top' : '';
   const angledBottomGeometryClass = angledBottom ? 'angled-section-bottom' : '';
 
-  // Padding classes specifically for compensating the angle
-  // These will override the respective sides of basePaddingClasses if an angle is present.
-  // pt-40/pb-40 provides 10rem (160px) padding, which should cover 5vw + 20px angle height on most screens.
-  const angledTopPaddingClass = angledTop ? 'pt-40' : '';
-  const angledBottomPaddingClass = angledBottom ? 'pb-40' : '';
+  // Dynamic padding to ensure content clears the angle + 2rem buffer
+  const dynamicAnglePaddingValue = 'calc(5vw + 20px + 2rem)'; // 2rem is 32px, so calc(5vw + 52px)
+
+  const angledTopPaddingClass = angledTop ? `pt-[${dynamicAnglePaddingValue}]` : '';
+  const angledBottomPaddingClass = angledBottom ? `pb-[${dynamicAnglePaddingValue}]` : '';
   
   const sectionClasses = cn(
     basePaddingClasses, // Default padding for content
     backgroundColor,
-    angledTopGeometryClass, // Applies clip-path and margin for top angle
+    angledTopGeometryClass, // Applies clip-path for top angle
     angledBottomGeometryClass, // Applies clip-path and margin for bottom angle
     angledTopPaddingClass, // Overrides top padding if angledTop
     angledBottomPaddingClass, // Overrides bottom padding if angledBottom
