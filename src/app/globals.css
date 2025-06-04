@@ -91,10 +91,10 @@
 /* Angled section divider utility */
 .angled-section-top {
   clip-path: polygon(0 0, 100% calc(5vw + 20px), 100% 100%, 0 100%);
-  margin-top: calc(-5vw - 20px); /* Compensate for clip-path */
+  /* margin-top: calc(-5vw - 20px); Removed to prevent double negative margins */
 }
 
 .angled-section-bottom {
   clip-path: polygon(0 0, 100% 0, 100% calc(100% - 5vw - 20px), 0 100%);
-  margin-bottom: calc(-5vw - 20px); /* Compensate for clip-path */
+  margin-bottom: calc(-5vw - 20px); /* Compensate for clip-path, pulls next section up */
 }
