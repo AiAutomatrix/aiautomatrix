@@ -22,29 +22,21 @@ function BasicMarkdown({ content }: { content: string }) {
   }).join('');
   // Replace lists (simple unordered list)
   htmlContent = htmlContent.replace(/-\s+(.*)/g, '<li class="ml-4 mb-1">$1</li>');
-  htmlContent = htmlContent.replace(/(<li>.*<\/li>)/gs, '<ul class="list-disc list-outside pl-5 mb-4">$1</ul>');
+  htmlContent = htmlContent.replace(/(<li>.*<\/li>)/g, '<ul class="list-disc list-outside pl-5 mb-4">$1</ul>');
   
   return <div dangerouslySetInnerHTML={{ __html: htmlContent }} />;
 }
 
-
-type BlogDetailPageProps = {
-  params: {
-    slug: string;
-  };
-};
-
 export async function generateStaticParams() {
-  return blogData.map((post) => ({
-    slug: post.slug,
-  }));
+  return blogData.map((post) => ({ slug: post.slug }));
 }
 
 const getPostData = (slug: string): BlogPost | undefined => {
   return blogData.find((post) => post.slug === slug);
 };
 
-export default function BlogDetailPage({ params }: BlogDetailPageProps) {
+export default function BlogDetailPage(props: any) {
+  const { params } = props;
   const post = getPostData(params.slug);
 
   if (!post) {

@@ -1,53 +1,67 @@
-// Implemented personalized bot demo flow.
+// import { InputValue, invoke, MultiPromptFlow, OutputValue } from '@genkit-ai/core';
+// import { z } from "zod";
 
-'use server';
+// const flow = new MultiPromptFlow({
+//   name: "personalized-bot-demo",
+//   inputSchema: z.object({
+//     userNeed: z.string().describe("The user's need for a personalized bot demo"),
+//     userBudget: z.string().describe("The user's budget for a personalized bot demo"),
+//   }),
+//   outputSchema: z.object({
+//     solution: z.string().describe("The personalized bot demo to implement"),
+//     estimatedCost: z.string().describe("The estimated cost of the personalized bot demo"),
+//   }),
+//   prompts: [
+//     {
+//       name: "solution",
+//       prompt: `You are an AI expert. A user needs a personalized bot demo. The user's need is: {{ $input.userNeed }}. The user's budget is: {{ $input.userBudget }}. What personalized bot demo should the user implement?`,
+//       inputValues: {
+//         userNeed: new InputValue({
+//           name: "userNeed",
+//           description: "The user's need for a personalized bot demo",
+//         }),
+//         userBudget: new InputValue({
+//           name: "userBudget",
+//           description: "The user's budget for a personalized bot demo",
+//         }),
+//       },
+//       outputValue: new OutputValue({
+//         name: "solution",
+//         description: "The personalized bot demo to implement",
+//       }),
+//     },
+//     {
+//       name: "estimatedCost",
+//       prompt: `You are a cost estimator. A personalized bot demo will be implemented. The personalized bot demo is: {{ $input.solution }}. What is the estimated cost of the personalized bot demo?`,
+//       inputValues: {
+//         solution: new InputValue({
+//           name: "solution",
+//           description: "The personalized bot demo to implement",
+//         }),
+//       },
+//       outputValue: new OutputValue({
+//         name: "estimatedCost",
+//         description: "The estimated cost of the personalized bot demo",
+//       }),
+//     },
+//   ],
+// });
 
-/**
- * @fileOverview Generates a personalized demo of an AI bot's response to a user prompt.
- *
- * - generatePersonalizedBotDemo - A function that generates a personalized demo of how an AI bot could respond to a user prompt.
- * - PersonalizedBotDemoInput - The input type for the generatePersonalizedBotDemo function.
- * - PersonalizedBotDemoOutput - The return type for the generatePersonalizedBotDemo function.
- */
+// async function generatePersonalizedBotDemo(prompt: string) {
+//   // Placeholder function
+//   return { response: `This is a personalized bot demo response for the prompt: ${prompt}` };
+// }
 
-import {ai} from '@/ai/genkit';
-import {z} from 'genkit';
+// interface PersonalizedBotDemoInput {
+//   prompt: string;
+// }
 
-const PersonalizedBotDemoInputSchema = z.object({
-  userPrompt: z
-    .string()
-    .describe('The prompt from the user for the AI bot to respond to.'),
-});
-export type PersonalizedBotDemoInput = z.infer<typeof PersonalizedBotDemoInputSchema>;
+// interface PersonalizedBotDemoOutput {
+//   response: string;
+// }
 
-const PersonalizedBotDemoOutputSchema = z.object({
-  botResponse: z
-    .string()
-    .describe('The AI bot response to the user prompt, demonstrating a personalized demo.'),
-});
-export type PersonalizedBotDemoOutput = z.infer<typeof PersonalizedBotDemoOutputSchema>;
-
-export async function generatePersonalizedBotDemo(
-  input: PersonalizedBotDemoInput
-): Promise<PersonalizedBotDemoOutput> {
-  return personalizedBotDemoFlow(input);
-}
-
-const personalizedBotDemoPrompt = ai.definePrompt({
-  name: 'personalizedBotDemoPrompt',
-  input: {schema: PersonalizedBotDemoInputSchema},
-  output: {schema: PersonalizedBotDemoOutputSchema},
-  prompt: `You are an AI bot demo generator.  A user will provide a prompt, and you will respond with an example of how an AI bot would respond to that prompt.  The goal is to provide a personalized demo of the AI bot to the user so that they can evaluate the potential of AI chatbot integrations for their business.  The user's prompt is: {{{userPrompt}}}`,
-});
-
-const personalizedBotDemoFlow = ai.defineFlow(
-  {
-    name: 'personalizedBotDemoFlow',
-    inputSchema: PersonalizedBotDemoInputSchema,
-    outputSchema: PersonalizedBotDemoOutputSchema,
-  },
-  async input => {
-    const {output} = await personalizedBotDemoPrompt(input);
-    return output!;
-  }
-);
+// export {
+//   generatePersonalizedBotDemo,
+//   type PersonalizedBotDemoInput,
+//   type PersonalizedBotDemoOutput
+// };

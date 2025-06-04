@@ -1,56 +1,55 @@
-// use server'
-'use server';
+// use server
 
-/**
- * @fileOverview A backend system that uses generative AI to fulfill requests for websites, bots, and custom AI solutions.
- *
- * - aiSolutionBackend - A function that handles the AI solution backend process.
- * - AiSolutionBackendInput - The input type for the aiSolutionBackend function.
- * - AiSolutionBackendOutput - The return type for the aiSolutionBackend function.
- */
+// import * as Genkit from '@genkit-ai/core';
+// import { z } from 'zod';
 
-import {ai} from '@/ai/genkit';
-import {z} from 'genkit';
+// const flow = new Genkit.MultiPromptFlow({
+//   name: "ai-solution-backend",
+//   inputSchema: z.object({
+//     userNeed: z.string().describe("The user's need for an AI solution"),
+//     userBudget: z.string().describe("The user's budget for an AI solution"),
+//   }),
+//   outputSchema: z.object({
+//     solution: z.string().describe("The AI solution to implement"),
+//     estimatedCost: z.string().describe("The estimated cost of the AI solution"),
+//   }),
+//   prompts: [
+//     {
+//       name: "solution",
+//       prompt: `You are an AI expert. A user needs an AI solution. The user's need is: {{ $input.userNeed }}. The user's budget is: {{ $input.userBudget }}. What AI solution should the user implement?`,
+//       inputValues: {
+//         userNeed: new Genkit.InputValue({
+//           name: "userNeed",
+//           description: "The user's need for an AI solution",
+//         }),
+//         userBudget: new Genkit.InputValue({
+//           name: "userBudget",
+//           description: "The user's budget for an AI solution",
+//         }),
+//       },
+//       outputValue: new Genkit.OutputValue({
+//         name: "solution",
+//         description: "The AI solution to implement",
+//       }),
+//     },
+//     {
+//       name: "estimatedCost",
+//       prompt: `You are a cost estimator. An AI solution will be implemented. The AI solution is: {{ $input.solution }}. What is the estimated cost of the AI solution?`,
+//       inputValues: {
+//         solution: new Genkit.InputValue({
+//           name: "solution",
+//           description: "The AI solution to implement",
+//         }),
+//       },
+//       outputValue: new Genkit.OutputValue({
+//         name: "estimatedCost",
+//         description: "The estimated cost of the AI solution",
+//       }),
+//     },
+//   ],
+// });
 
-const AiSolutionBackendInputSchema = z.object({
-  requestType: z.enum(['website', 'bot', 'customAI']).describe('The type of AI solution requested.'),
-  details: z.string().describe('Detailed specifications and requirements for the requested AI solution.'),
-  clientName: z.string().describe('The name of the client making the request.'),
-});
-export type AiSolutionBackendInput = z.infer<typeof AiSolutionBackendInputSchema>;
-
-const AiSolutionBackendOutputSchema = z.object({
-  solutionProposal: z.string().describe('A detailed proposal for the requested AI solution, including features, technologies, and estimated cost.'),
-  timeline: z.string().describe('An estimated timeline for the development and deployment of the AI solution.'),
-  costEstimate: z.string().describe('An estimated cost for the development and deployment of the AI solution.'),
-});
-export type AiSolutionBackendOutput = z.infer<typeof AiSolutionBackendOutputSchema>;
-
-export async function aiSolutionBackend(input: AiSolutionBackendInput): Promise<AiSolutionBackendOutput> {
-  return aiSolutionBackendFlow(input);
-}
-
-const prompt = ai.definePrompt({
-  name: 'aiSolutionBackendPrompt',
-  input: {schema: AiSolutionBackendInputSchema},
-  output: {schema: AiSolutionBackendOutputSchema},
-  prompt: `You are an AI solution architect. A client, {{{clientName}}}, has requested a solution of type {{{requestType}}}. Here are the details of the request: {{{details}}}.
-
-  Create a solution proposal, timeline, and cost estimate for the client. Be as detailed as possible in the solution proposal, including specific technologies, features, and design considerations.  Provide an estimate in weeks for the timeline, and an estimated cost in US dollars.
-
-  Solution Proposal:
-  Timeline:
-  Cost Estimate:`,
-});
-
-const aiSolutionBackendFlow = ai.defineFlow(
-  {
-    name: 'aiSolutionBackendFlow',
-    inputSchema: AiSolutionBackendInputSchema,
-    outputSchema: AiSolutionBackendOutputSchema,
-  },
-  async input => {
-    const {output} = await prompt(input);
-    return output!;
-  }
-);
+// export async function runAiSolutionBackend(userNeed: string, userBudget: string) {
+//   const result = await Genkit.invoke(flow, { userNeed, userBudget });
+//   return result;
+// }

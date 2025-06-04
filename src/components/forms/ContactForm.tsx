@@ -18,7 +18,7 @@ import { Textarea } from '@/components/ui/textarea';
 import { useToast } from '@/hooks/use-toast';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Loader2 } from 'lucide-react';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, Suspense } from 'react';
 import { useSearchParams } from 'next/navigation';
 
 const contactFormSchema = z.object({
@@ -58,30 +58,30 @@ export function ContactForm() {
     },
   });
 
- useEffect(() => {
+  useEffect(() => {
     let initialService = '';
     let initialMessage = '';
 
     if (plan) {
-        switch(plan) {
-            case 'starter-website': 
-                initialService = services[0];
-                initialMessage = `I'm interested in the AI Starter Website plan.`;
-                break;
-            case 'pro-bot':
-                initialService = services[1];
-                initialMessage = `I'm interested in the Pro AI Bot Agent plan.`;
-                break;
-            case 'enterprise-solution':
-                initialService = 'Enterprise AI Solution Inquiry'; // Custom or general
-                initialMessage = `I'm interested in discussing an Enterprise AI Solution.`;
-                break;
-        }
+      switch (plan) {
+        case 'starter-website':
+          initialService = services[0];
+          initialMessage = `I'm interested in the AI Starter Website plan.`;
+          break;
+        case 'pro-bot':
+          initialService = services[1];
+          initialMessage = `I'm interested in the Pro AI Bot Agent plan.`;
+          break;
+        case 'enterprise-solution':
+          initialService = 'Enterprise AI Solution Inquiry'; // Custom or general
+          initialMessage = `I'm interested in discussing an Enterprise AI Solution.`;
+          break;
+      }
     } else if (custom) {
-        initialService = 'Custom Solution Inquiry';
-        initialMessage = `I'm interested in a custom AI solution.`;
+      initialService = 'Custom Solution Inquiry';
+      initialMessage = `I'm interested in a custom AI solution.`;
     }
-    
+
     form.reset({ ...form.getValues(), service: initialService, message: initialMessage });
 
   }, [plan, custom, form]);
@@ -104,17 +104,45 @@ export function ContactForm() {
   }
 
   return (
-    <Form {...form}>
-      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6 bg-card p-8 rounded-lg shadow-xl">
-        <div className="grid md:grid-cols-2 gap-6">
+    <Suspense fallback={<p>Loading...</p>}>
+      <Form {...form}>
+        <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6 bg-card p-8 rounded-lg shadow-xl">
+          <div className="grid md:grid-cols-2 gap-6">
+            <FormField
+              control={form.control}
+              name="name"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Full Name</FormLabel>
+                  <FormControl>
+                    <Input placeholder="John Doe" {...field} />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+            <FormField
+              control={form.control}
+              name="email"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Email Address</FormLabel>
+                  <FormControl>
+                    <Input type="email" placeholder="you@example.com" {...field} />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+          </div>
           <FormField
             control={form.control}
-            name="name"
+            name="company"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>Full Name</FormLabel>
+                <FormLabel>Company (Optional)</FormLabel>
                 <FormControl>
-                  <Input placeholder="John Doe" {...field} />
+                  <Input placeholder="Your Company Inc." {...field} />
                 </FormControl>
                 <FormMessage />
               </FormItem>
@@ -122,84 +150,58 @@ export function ContactForm() {
           />
           <FormField
             control={form.control}
-            name="email"
+            name="service"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>Email Address</FormLabel>
-                <FormControl>
-                  <Input type="email" placeholder="you@example.com" {...field} />
-                </FormControl>
+                <FormLabel>Service of Interest</FormLabel>
+                <Select onValueChange={field.onChange} defaultValue={field.value} value={field.value}>
+                  <FormControl>
+                    <SelectTrigger>
+                      <SelectValue placeholder="Select a service" />
+                    </SelectTrigger>
+                  </FormControl>
+                  <SelectContent>
+                    {services.map(service => (
+                      <SelectItem key={service} value={service}>{service}</SelectItem>
+                    ))}
+                  </SelectContent>
+                </Select>
                 <FormMessage />
               </FormItem>
             )}
           />
-        </div>
-        <FormField
-          control={form.control}
-          name="company"
-          render={({ field }) => (
-            <FormItem>
-              <FormLabel>Company (Optional)</FormLabel>
-              <FormControl>
-                <Input placeholder="Your Company Inc." {...field} />
-              </FormControl>
-              <FormMessage />
-            </FormItem>
-          )}
-        />
-        <FormField
-          control={form.control}
-          name="service"
-          render={({ field }) => (
-            <FormItem>
-              <FormLabel>Service of Interest</FormLabel>
-              <Select onValueChange={field.onChange} defaultValue={field.value} value={field.value}>
+          <FormField
+            control={form.control}
+            name="message"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel>Your Message</FormLabel>
                 <FormControl>
-                  <SelectTrigger>
-                    <SelectValue placeholder="Select a service" />
-                  </SelectTrigger>
+                  <Textarea
+                    placeholder="Tell us more about your project or inquiry..."
+                    className="min-h-[120px]"
+                    {...field}
+                  />
                 </FormControl>
-                <SelectContent>
-                  {services.map(service => (
-                    <SelectItem key={service} value={service}>{service}</SelectItem>
-                  ))}
-                </SelectContent>
-              </Select>
-              <FormMessage />
-            </FormItem>
-          )}
-        />
-        <FormField
-          control={form.control}
-          name="message"
-          render={({ field }) => (
-            <FormItem>
-              <FormLabel>Your Message</FormLabel>
-              <FormControl>
-                <Textarea
-                  placeholder="Tell us more about your project or inquiry..."
-                  className="min-h-[120px]"
-                  {...field}
-                />
-              </FormControl>
-              <FormDescription>
-                Please provide as much detail as possible.
-              </FormDescription>
-              <FormMessage />
-            </FormItem>
-          )}
-        />
-        <Button type="submit" className="w-full font-headline" disabled={isSubmitting}>
-          {isSubmitting ? (
-            <>
-              <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-              Sending...
-            </>
-          ) : (
-            'Send Message'
-          )}
-        </Button>
-      </form>
-    </Form>
+                <FormDescription>
+                  Please provide as much detail as possible.
+                </FormDescription>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+          <Button type="submit" className="w-full font-headline" disabled={isSubmitting}>
+            {isSubmitting ? (
+              <>
+                <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                Sending...
+              </>
+            ) : (
+              'Send Message'
+            )}
+          </Button>
+        </form>
+      </Form>
+    </Suspense>
   );
 }

@@ -8,12 +8,6 @@ import { Badge } from '@/components/ui/badge';
 import { portfolioData, PortfolioItem } from '@/data/portfolio';
 import { CheckCircle, ExternalLink } from 'lucide-react';
 
-type PortfolioDetailPageProps = {
-  params: {
-    projectId: string;
-  };
-};
-
 export async function generateStaticParams() {
   return portfolioData.map((item) => ({
     projectId: item.id,
@@ -24,7 +18,8 @@ const getProjectData = (id: string): PortfolioItem | undefined => {
   return portfolioData.find((item) => item.id === id);
 };
 
-export default function PortfolioDetailPage({ params }: PortfolioDetailPageProps) {
+export default function PortfolioDetailPage(props: any) {
+  const { params } = props;
   const project = getProjectData(params.projectId);
 
   if (!project) {
@@ -44,7 +39,7 @@ export default function PortfolioDetailPage({ params }: PortfolioDetailPageProps
         />
         <div className="absolute inset-0 bg-gradient-to-t from-background via-background/80 to-transparent" />
         <div className="absolute inset-0 flex items-center justify-center">
-           <PageTitle title={project.title} className="pt-12 pb-8 container mx-auto px-4" />
+          <PageTitle title={project.title} className="pt-12 pb-8 container mx-auto px-4" />
         </div>
       </div>
      
@@ -52,7 +47,7 @@ export default function PortfolioDetailPage({ params }: PortfolioDetailPageProps
       <Section className="pb-16 -mt-12">
         <div className="max-w-4xl mx-auto bg-card p-6 sm:p-8 rounded-lg shadow-xl">
           <div className="flex items-center space-x-3 mb-4">
-            <project.Icon className="h-8 w-8 text-primary" />
+            {project.Icon && <project.Icon className="h-8 w-8 text-primary" />}
             <Badge variant="default" className="text-sm">{project.category}</Badge>
             {project.client && <Badge variant="secondary" className="text-sm">Client: {project.client}</Badge>}
           </div>
