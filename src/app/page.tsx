@@ -73,14 +73,14 @@ export default function HomePage() {
           <div className="relative h-64 md:h-96 animate-fadeInUp" style={{ animationDelay: '0.3s' }}>
             {/* Placeholder for 3D animation / Three.js scene */}
             {/* <ThreeScene /> */}
-             <Image
-                src="https://placehold.co/600x400.png"
-                alt="AI Abstract Art"
-                layout="fill"
-                objectFit="contain"
-                className="rounded-lg"
-                data-ai-hint="abstract technology"
-              />
+            <Image
+              src="/images/aiautomatrix.png"
+              alt="AI Automatrix futuristic header"
+              width={600}
+              height={400}
+              className="rounded-lg"
+              priority
+            />
           </div>
         </div>
       </Section>
