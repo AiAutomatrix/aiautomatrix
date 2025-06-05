@@ -149,7 +149,7 @@ export default function HomePage() {
               <Button asChild size="lg" variant="secondary" className="font-headline">
                 <Link href="/request-solution">Request a Custom Solution</Link>
               </Button>
-              <Button asChild size="lg" variant="outline" className="font-headline border-primary-foreground/50 text-primary-foreground hover:bg-primary-foreground/10">
+              <Button asChild size="lg" variant="outline" className="font-headline border-primary-foreground/50 text-primary-foreground hover:bg-primary-foreground/10 text-black">
                 <Link href="/demos/personalized-bot">Try Our Bot Demo</Link>
               </Button>
             </div>
