@@ -41,8 +41,8 @@ export default function BotpressAgentsPage() {
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <div>
             <Image 
-              src="https://placehold.co/600x400.png" 
-              alt="Botpress Agent Interface" 
+              src="/images/services/webchat.jpg" 
+              alt="Botpress Logo" 
               width={600} 
               height={400} 
               className="rounded-lg shadow-xl"
@@ -90,7 +90,7 @@ export default function BotpressAgentsPage() {
         </div>
       </Section>
 
-      <Section className="bg-primary text-primary-foreground py-16" angledTop>
+      <Section className="bg-gradient-to-br from-violet-900 via-purple-700 to-fuchsia-500 text-primary-foreground py-16 sm:py-24" angledTop>
         <div className="text-center">
           <h2 className="text-3xl font-headline font-bold sm:text-4xl">Automate Conversations, Elevate Experiences.</h2>
           <p className="mt-4 text-lg text-primary-foreground/80">

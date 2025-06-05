@@ -33,14 +33,14 @@ const testimonials = [
     quote: "Ai-Automatrix revolutionized our customer engagement with a custom AI bot. Highly recommended!",
     name: "Jane Doe",
     company: "Tech Solutions Inc.",
-    avatar: "https://placehold.co/100x100.png",
+    avatar: "/images/people/janedone.png",
     aiHint: "woman portrait"
   },
   {
     quote: "The AI-powered website they built for us is not only beautiful but also incredibly smart. Our conversions are up!",
     name: "John Smith",
     company: "E-commerce Giants",
-    avatar: "https://placehold.co/100x100.png",
+    avatar: "/images/people/johnsmith.png",
     aiHint: "man portrait"
   },
 ];
@@ -137,7 +137,7 @@ export default function HomePage() {
       </Section>
 
       {/* Call to Action Section */}
-      <Section className="bg-primary text-primary-foreground py-16 sm:py-24" angledTop>
+      <Section className="bg-gradient-to-br from-blue-900 via-blue-700 to-teal-500 text-primary-foreground py-16 sm:py-24" angledTop>
          <div className="text-center">
             <h2 className="text-3xl font-headline font-bold tracking-tight sm:text-4xl">
               Ready to Transform Your Business with AI?

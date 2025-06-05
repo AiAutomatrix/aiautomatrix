@@ -41,7 +41,7 @@ export default function WebsiteBuildingPage() {
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <div>
             <Image 
-              src="https://placehold.co/600x400.png" 
+              src="/images/services/website.jpg" 
               alt="AI Website Interface" 
               width={600} 
               height={400} 
@@ -100,7 +100,7 @@ export default function WebsiteBuildingPage() {
         </div>
       </Section>
 
-      <Section className="bg-primary text-primary-foreground py-16" angledTop>
+      <Section className="bg-gradient-to-br from-indigo-900 via-sky-700 to-emerald-500 text-primary-foreground py-16 sm:py-24" angledTop>
         <div className="text-center">
           <h2 className="text-3xl font-headline font-bold sm:text-4xl">Ready for an Intelligent Website?</h2>
           <p className="mt-4 text-lg text-primary-foreground/80">
