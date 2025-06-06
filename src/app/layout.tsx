@@ -33,8 +33,10 @@ export default function RootLayout({
           <Footer />
           <Toaster />
         </AppProviders>
-        <script src="https://cdn.botpress.cloud/webchat/v2.5/inject.js"></script>
-        <script src="https://files.bpcontent.cloud/2025/06/03/15/20250603153720-S2VH3DTS.js" defer></script>
+        
+      <script src="https://cdn.botpress.cloud/webchat/v3.0/inject.js"></script>
+      <script src="https://files.bpcontent.cloud/2025/06/06/16/20250606165235-WWY01YOP.js"></script>
+      
       </body>
     </html>
   );
