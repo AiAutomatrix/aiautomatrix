@@ -25,13 +25,13 @@ export default function PortfolioPage() {
                   <Image
                     src={item.imageUrl}
                     alt={item.title}
-                    layout="fill"
-                    objectFit="cover"
+                    fill
                     className="rounded-t-lg"
+                    priority={item.id === portfolioData[0].id} // Add priority to the first image
                     data-ai-hint={item.imageAiHint}
                   />
                 </div>
-                <div className="flex items-center space-x-2">
+                <div className="flex items-center space-x-2 mt-2">
                   <item.Icon className="h-5 w-5 text-primary" />
                   <Badge variant="secondary">{item.category}</Badge>
                 </div>
@@ -51,7 +51,7 @@ export default function PortfolioPage() {
               </CardContent>
               <CardFooter>
                 <Button asChild className="w-full font-headline">
-                  <Link href={`/portfolio/${item.id}`}>View Case Study <ArrowRight className="ml-2 h-4 w-4" /></Link>
+                  <Link href={`/portfolio/${item.id}`}>View Case Study <ArrowRight className="ml-2 h-4 w-4 transition-transform duration-200 group-hover:translate-x-1" /></Link>
                 </Button>
               </CardFooter>
             </Card>
