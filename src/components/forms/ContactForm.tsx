@@ -89,18 +89,41 @@ export function ContactForm() {
 
   async function onSubmit(data: ContactFormValues) {
     setIsSubmitting(true);
-    // Simulate API call
-    await new Promise(resolve => setTimeout(resolve, 2000));
-    setIsSubmitting(false);
 
-    console.log('Form data submitted:', data); // Replace with actual submission logic
+    console.log('Attempting to submit form with data:', data);
 
-    toast({
-      title: "Message Sent!",
-      description: "Thank you for contacting us. We'll get back to you shortly.",
-      variant: "default",
-    });
-    form.reset();
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+ 'Accept': 'application/json',
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
+      });
+
+      if (response.ok) {
+        toast({
+          title: "Message Sent!",
+          description: "Thank you for contacting us. We'll get back to you shortly.",
+          variant: "default",
+        });
+        console.log('Form submitted successfully. Response:', response);
+        form.reset();
+      } else {
+        const errorData = await response.json();
+ console.error('Form submission failed. Response status:', response.status, 'Error data:', errorData);
+        throw new Error(errorData.message || 'Failed to send message.');
+      }
+    } catch (error: any) {
+      toast({
+        title: "Error Sending Message",
+        description: error.message || "There was an issue sending your message. Please try again.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   }
 
   return (
