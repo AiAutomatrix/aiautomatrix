@@ -24,7 +24,7 @@ export default function RootLayout({
         <link href="https://fonts.googleapis.com/css2?family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet" />
         
         {/* Google tag (gtag.js) */}
-        <script async src="https://www.googletagmanager.com/gtag/js?id=G-YOUR_MEASUREMENT_ID"></script>
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-1HMVGS6MW4"></script>
         <script
           dangerouslySetInnerHTML={{
             __html: `
@@ -32,7 +32,8 @@ export default function RootLayout({
               function gtag(){dataLayer.push(arguments);}
               gtag('js', new Date());
               gtag('config', 'G-YOUR_MEASUREMENT_ID');
-            `,
+              gtag('config', 'G-1HMVGS6MW4');
+ `
           }}></script>
         <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap" rel="stylesheet" />
       </head>
