@@ -1,6 +1,7 @@
 'use client';
 
 import Link from 'next/link';
+import Image from 'next/image';
 import { Menu, BotMessageSquare, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Sheet, SheetContent, SheetTrigger, SheetClose } from '@/components/ui/sheet';
@@ -26,7 +27,7 @@ export default function Header() {
   return (
     <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="container mx-auto flex h-16 items-center justify-between px-4 sm:px-6 lg:px-8">
-        <Link href="/" className="flex items-center gap-2">
+        <Link href="/" className="flex items-center gap-2" aria-label="Home">
           <BotMessageSquare className="h-8 w-8 text-primary" />
           <span className="text-2xl font-headline font-bold text-primary">Ai-Automatrix</span>
         </Link>
@@ -60,7 +61,7 @@ export default function Header() {
               <div className="flex flex-col space-y-5">
                 <div className="flex justify-between items-center">
                  <Link href="/" className="flex items-center gap-2" onClick={() => setIsMobileMenuOpen(false)}>
-                    <BotMessageSquare className="h-7 w-7 text-primary" />
+                    <Image src="/images/logo/logo.png" alt="AI Automatrix Logo" width={32} height={32} />
                     <span className="text-xl font-headline font-bold text-primary">Ai-Automatrix</span>
                   </Link>
                   <SheetClose asChild>
