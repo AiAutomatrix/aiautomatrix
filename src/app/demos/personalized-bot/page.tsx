@@ -6,7 +6,7 @@ export default function IframePage() {
     
       <iframe
         src="https://tradeflow-chi.vercel.app"
-        style={{ width: "100%", height: "50%" }}
+        style={{ width: "100%", height: "80hv" }}
         title="Tradeflow App"
       />
     
