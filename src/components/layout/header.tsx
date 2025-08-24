@@ -28,60 +28,61 @@ export default function Header() {
           </Link>
         </div>
         
-        <nav className="hidden md:flex items-center space-x-6 text-sm font-medium">
-          {navLinks.map((link) => (
-            <Link
-              key={link.href}
-              href={link.href}
-              className="transition-colors hover:text-primary"
-            >
-              {link.label}
-            </Link>
-          ))}
-        </nav>
-
-        <div className="flex items-center space-x-4">
-            <Link href="#contact" className='hidden md:inline-flex'>
-              <Button className="btn-gradient">Get a Quote</Button>
-            </Link>
-            <Sheet open={isMenuOpen} onOpenChange={setIsMenuOpen}>
-              <SheetTrigger asChild>
-                <Button variant="ghost" className="md:hidden">
-                  <Menu className="h-6 w-6" />
-                  <span className="sr-only">Open menu</span>
-                </Button>
-              </SheetTrigger>
-              <SheetContent side="right" className="w-[300px] sm:w-[400px]">
-                <div className="flex flex-col h-full">
-                  <div className="flex items-center justify-between p-4 border-b">
-                     <Link href="/" className="flex items-center space-x-2" onClick={() => setIsMenuOpen(false)}>
-                      <Sparkles className="h-6 w-6 text-primary" />
-                      <span className="font-bold font-headline text-lg">LocalSpark</span>
-                    </Link>
-                    <Button variant="ghost" onClick={() => setIsMenuOpen(false)}>
-                      <X className="h-6 w-6" />
-                       <span className="sr-only">Close menu</span>
-                    </Button>
-                  </div>
-                  <nav className="flex flex-col p-4 space-y-4">
-                    {navLinks.map((link) => (
-                      <Link
-                        key={link.href}
-                        href={link.href}
-                        className="text-lg font-medium transition-colors hover:text-primary"
-                        onClick={() => setIsMenuOpen(false)}
-                      >
-                        {link.label}
-                      </Link>
-                    ))}
-                     <Link href="#contact" onClick={() => setIsMenuOpen(false)}>
-                        <Button className="w-full btn-gradient">Get a Quote</Button>
-                    </Link>
-                  </nav>
+        <div className="flex items-center gap-4">
+          <nav className="hidden md:flex items-center space-x-6 text-sm font-medium">
+            {navLinks.map((link) => (
+              <Link
+                key={link.href}
+                href={link.href}
+                className="transition-colors hover:text-primary"
+              >
+                {link.label}
+              </Link>
+            ))}
+          </nav>
+        
+          <Link href="#contact" className='hidden md:inline-flex'>
+            <Button className="btn-gradient">Get a Quote</Button>
+          </Link>
+          
+          <Sheet open={isMenuOpen} onOpenChange={setIsMenuOpen}>
+            <SheetTrigger asChild>
+              <Button variant="ghost" className="md:hidden">
+                <Menu className="h-6 w-6" />
+                <span className="sr-only">Open menu</span>
+              </Button>
+            </SheetTrigger>
+            <SheetContent side="right" className="w-[300px] sm:w-[400px]">
+              <div className="flex flex-col h-full">
+                <div className="flex items-center justify-between p-4 border-b">
+                   <Link href="/" className="flex items-center space-x-2" onClick={() => setIsMenuOpen(false)}>
+                    <Sparkles className="h-6 w-6 text-primary" />
+                    <span className="font-bold font-headline text-lg">LocalSpark</span>
+                  </Link>
+                  <Button variant="ghost" onClick={() => setIsMenuOpen(false)}>
+                    <X className="h-6 w-6" />
+                     <span className="sr-only">Close menu</span>
+                  </Button>
                 </div>
-              </SheetContent>
-            </Sheet>
-          </div>
+                <nav className="flex flex-col p-4 space-y-4">
+                  {navLinks.map((link) => (
+                    <Link
+                      key={link.href}
+                      href={link.href}
+                      className="text-lg font-medium transition-colors hover:text-primary"
+                      onClick={() => setIsMenuOpen(false)}
+                    >
+                      {link.label}
+                    </Link>
+                  ))}
+                   <Link href="#contact" onClick={() => setIsMenuOpen(false)}>
+                      <Button className="w-full btn-gradient">Get a Quote</Button>
+                  </Link>
+                </nav>
+              </div>
+            </SheetContent>
+          </Sheet>
+        </div>
       </div>
     </header>
   );
