@@ -36,7 +36,7 @@ const ParticleWave = () => {
 
       update(time: number) {
         // make particle wave up and down
-        this.y = h / 2 + Math.sin(time * 0.001 + this.offset) * 200;
+        this.y = h / 2 + Math.sin(time * 0.001 + this.offset) * (h / 2.2);
       }
 
       draw(time: number, i: number) {
