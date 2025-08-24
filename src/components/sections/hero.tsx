@@ -7,7 +7,7 @@ export default function HeroSection() {
   return (
     <section className="relative flex h-[calc(100vh-56px)] items-center justify-center">
       <VantaBackground />
-      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-background -z-10"></div>
+      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-background opacity-80"></div>
 
       <div className="container text-center z-10">
         <h1 className="font-headline text-4xl md:text-6xl lg:text-7xl font-bold tracking-tighter mb-4">

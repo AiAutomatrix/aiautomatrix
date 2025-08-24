@@ -17,8 +17,9 @@ const VantaBackground = () => {
   const vantaRef = useRef(null)
 
   useEffect(() => {
-    if (!vantaEffect && window.VANTA) {
-      setVantaEffect(window.VANTA.WAVES({
+    let effect: any;
+    if (window.VANTA && window.THREE) {
+      effect = window.VANTA.WAVES({
         el: vantaRef.current,
         THREE: window.THREE,
         mouseControls: true,
@@ -33,14 +34,15 @@ const VantaBackground = () => {
         waveHeight: 15.00,
         waveSpeed: 0.8,
         zoom: 0.8
-      }))
+      })
+      setVantaEffect(effect);
     }
     return () => {
-      if (vantaEffect) vantaEffect.destroy()
+      if (effect) effect.destroy()
     }
-  }, [vantaEffect])
+  }, [])
 
-  return <div ref={vantaRef} className="absolute inset-0 -z-20" />
+  return <div ref={vantaRef} className="absolute inset-0 -z-10" />
 }
 
 export default VantaBackground;
