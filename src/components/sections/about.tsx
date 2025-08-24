@@ -21,7 +21,7 @@ export default function AboutSection() {
               Who <span className="text-gradient">We Are</span>
             </h2>
             <p className="text-lg text-muted-foreground mb-6">
-              LocalSpark was founded on a simple principle: to empower local businesses with the digital tools they need to thrive in a competitive landscape. We're a passionate team of designers, developers, and strategists dedicated to crafting unique online experiences.
+              Ai Automatrix was founded on a simple principle: to empower businesses with the AI tools they need to thrive in a competitive landscape. We're a passionate team of developers, and strategists dedicated to crafting unique automation solutions.
             </p>
             <ul className="space-y-4">
               <li className="flex items-center">

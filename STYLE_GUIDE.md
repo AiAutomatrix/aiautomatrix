@@ -1,6 +1,6 @@
-# LocalSpark: Brand & Style Guide
+# Ai Automatrix: Brand & Style Guide
 
-This document outlines the visual design system for the LocalSpark website, ensuring a cohesive, modern, and professional brand identity. The style is built on a futuristic and energetic aesthetic, designed to be both visually striking and highly readable.
+This document outlines the visual design system for the Ai Automatrix website, ensuring a cohesive, modern, and professional brand identity. The style is built on a futuristic and energetic aesthetic, designed to be both visually striking and highly readable.
 
 ---
 

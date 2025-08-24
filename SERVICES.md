@@ -1,6 +1,6 @@
-# LocalSpark Services Knowledgebase
+# Ai Automatrix Services Knowledgebase
 
-This document provides a detailed overview of the services offered by LocalSpark. Our goal is to empower local businesses with the digital tools they need to thrive in a competitive landscape.
+This document provides a detailed overview of the services offered by Ai Automatrix. Our goal is to empower local businesses with the digital tools they need to thrive in a competitive landscape.
 
 ---
 

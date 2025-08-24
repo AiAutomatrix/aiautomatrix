@@ -1,11 +1,11 @@
 import { initializeApp, getApps } from 'firebase/app';
 
 const firebaseConfig = {
-  "projectId": "localspark-he2ek",
+  "projectId": "ai-automatrix-fb",
   "appId": "1:481819628946:web:289f3d3b4b902f733fdd4b",
-  "storageBucket": "localspark-he2ek.firebasestorage.app",
+  "storageBucket": "ai-automatrix-fb.firebasestorage.app",
   "apiKey": "AIzaSyB8IPJhICEYQgsLaWEbPgUrxICkMIvISC0",
-  "authDomain": "localspark-he2ek.firebaseapp.com",
+  "authDomain": "ai-automatrix-fb.firebaseapp.com",
   "measurementId": "",
   "messagingSenderId": "481819628946"
 };

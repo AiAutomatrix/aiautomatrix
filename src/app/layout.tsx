@@ -3,8 +3,8 @@ import './globals.css';
 import { Toaster } from '@/components/ui/toaster';
 
 export const metadata: Metadata = {
-  title: 'LocalSpark',
-  description: 'Your Modern Local Business Website',
+  title: 'Ai Automatrix',
+  description: 'Your Modern AI Automation Solution',
 };
 
 export default function RootLayout({

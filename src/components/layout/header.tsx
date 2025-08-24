@@ -23,21 +23,23 @@ export default function Header() {
       <div className="flex h-14 items-center justify-between px-4 md:px-6">
         <Link href="/" className="flex items-center space-x-2">
           <Sparkles className="h-6 w-6 text-primary" />
-          <span className="font-bold font-headline text-lg">LocalSpark</span>
+          <span className="font-bold font-headline text-lg">Ai Automatrix</span>
         </Link>
         
-        {/* Desktop Navigation */}
-        <nav className="hidden md:flex items-center space-x-6 text-sm font-medium">
-          {navLinks.map((link) => (
-            <Link
-              key={link.href}
-              href={link.href}
-              className="transition-colors hover:text-primary"
-            >
-              {link.label}
-            </Link>
-          ))}
-        </nav>
+        <div className="flex-1 flex justify-center">
+          {/* Desktop Navigation */}
+          <nav className="hidden md:flex items-center space-x-6 text-sm font-medium">
+            {navLinks.map((link) => (
+              <Link
+                key={link.href}
+                href={link.href}
+                className="transition-colors hover:text-primary"
+              >
+                {link.label}
+              </Link>
+            ))}
+          </nav>
+        </div>
 
         <div className="flex items-center gap-4">
             {/* Desktop Quote Button */}
@@ -61,7 +63,7 @@ export default function Header() {
                     <div className="flex items-center justify-between p-4 border-b">
                       <Link href="/" className="flex items-center space-x-2" onClick={() => setIsMenuOpen(false)}>
                         <Sparkles className="h-6 w-6 text-primary" />
-                        <span className="font-bold font-headline text-lg">LocalSpark</span>
+                        <span className="font-bold font-headline text-lg">Ai Automatrix</span>
                       </Link>
                       <Button variant="ghost" onClick={() => setIsMenuOpen(false)}>
                         <X className="h-6 w-6" />

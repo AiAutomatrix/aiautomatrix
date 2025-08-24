@@ -9,10 +9,10 @@ export default function Footer() {
           <div className="flex flex-col items-start">
             <Link href="/" className="flex items-center space-x-2 mb-4">
               <Sparkles className="h-8 w-8 text-primary" />
-              <span className="font-bold font-headline text-2xl">LocalSpark</span>
+              <span className="font-bold font-headline text-2xl">Ai Automatrix</span>
             </Link>
             <p className="text-muted-foreground text-sm">
-              Modern solutions for local businesses.
+              Modern solutions for modern businesses.
             </p>
           </div>
           <div>
@@ -33,7 +33,7 @@ export default function Footer() {
           </div>
         </div>
         <div className="mt-8 border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center text-sm text-muted-foreground">
-          <p>&copy; {new Date().getFullYear()} LocalSpark. All rights reserved.</p>
+          <p>&copy; {new Date().getFullYear()} Ai Automatrix. All rights reserved.</p>
           <p className="mt-4 md:mt-0">Built with 🚀 in Firebase Studio</p>
         </div>
       </div>

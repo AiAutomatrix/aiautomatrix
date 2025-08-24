@@ -12,10 +12,10 @@ export default function HeroSection() {
       <ParticleWave />
       <div className="relative z-10 container text-center flex flex-col items-center">
         <h1 className="font-headline text-4xl md:text-6xl lg:text-7xl font-bold tracking-tighter mb-4">
-          <span className="text-gradient">Spark</span> Your Local Presence.
+          <span className="text-gradient">Ai Automatrix</span>
         </h1>
         <p className="max-w-2xl mx-auto text-lg md:text-xl text-muted-foreground mb-8">
-          We build stunning, high-performance websites that help local businesses shine online and attract more customers.
+          We build stunning, high-performance AI solutions that help businesses automate tasks and increase efficiency.
         </p>
         <div className="flex flex-wrap justify-center gap-4">
           <Link href="#services">

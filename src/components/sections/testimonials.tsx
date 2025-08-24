@@ -17,7 +17,7 @@ const testimonials = [
     avatar: "SL",
     image: "https://placehold.co/100x100.png",
     hint: "woman portrait",
-    text: "Working with LocalSpark was a game-changer. Their attention to detail and creative vision resulted in a website that truly represents our brand. We've seen a significant increase in engagement since the launch.",
+    text: "Working with Ai Automatrix was a game-changer. Their attention to detail and creative vision resulted in a website that truly represents our brand. We've seen a significant increase in engagement since the launch.",
   },
   {
     name: "Mike D.",
@@ -25,7 +25,7 @@ const testimonials = [
     avatar: "MD",
     image: "https://placehold.co/100x100.png",
     hint: "man portrait",
-    text: "The team at LocalSpark is phenomenal. They understood our needs as a small restaurant and delivered a beautiful, functional site that our customers love. Our online reservations have doubled!",
+    text: "The team at Ai Automatrix is phenomenal. They understood our needs as a small restaurant and delivered a beautiful, functional site that our customers love. Our online reservations have doubled!",
   },
   {
     name: "Jessica P.",
@@ -33,7 +33,7 @@ const testimonials = [
     avatar: "JP",
     image: "https://placehold.co/100x100.png",
     hint: "person smiling",
-    text: "I'm so impressed with the professionalism and skill of LocalSpark. They were communicative, efficient, and brought our vision to life perfectly. I couldn't be happier with the final product.",
+    text: "I'm so impressed with the professionalism and skill of Ai Automatrix. They were communicative, efficient, and brought our vision to life perfectly. I couldn't be happier with the final product.",
   },
 ]
 
