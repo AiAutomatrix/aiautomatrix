@@ -1,6 +1,6 @@
 "use client"
 
-import { useState, useEffect, type RefObject } from 'react'
+import { useState, useEffect } from 'react'
 
 // Correctly type the window object to include VANTA
 declare global {
@@ -12,18 +12,15 @@ declare global {
   }
 }
 
-interface VantaBackgroundProps {
-  vantaRef: RefObject<HTMLDivElement>;
-}
-
-const VantaBackground = ({ vantaRef }: VantaBackgroundProps) => {
+const VantaBackground = () => {
   const [vantaEffect, setVantaEffect] = useState<any>(null)
 
   useEffect(() => {
     let effect: any;
-    if (window.VANTA && window.THREE && vantaRef.current) {
+    // Check if VANTA is loaded and if the target element exists
+    if (window.VANTA && window.THREE && document.querySelector('#wave-bg')) {
       effect = window.VANTA.WAVES({
-        el: vantaRef.current,
+        el: "#wave-bg",
         THREE: window.THREE,
         mouseControls: true,
         touchControls: true,
@@ -40,10 +37,12 @@ const VantaBackground = ({ vantaRef }: VantaBackgroundProps) => {
       })
       setVantaEffect(effect);
     }
+
+    // Cleanup function to destroy the effect when the component unmounts
     return () => {
       if (effect) effect.destroy()
     }
-  }, [vantaRef])
+  }, []) // Empty dependency array ensures this runs only once on mount
 
   return null
 }
