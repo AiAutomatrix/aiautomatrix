@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import './globals.css';
 import { Toaster } from '@/components/ui/toaster';
+import Script from 'next/script';
 
 export const metadata: Metadata = {
   title: 'LocalSpark',
@@ -29,6 +30,8 @@ export default function RootLayout({
       <body className="font-body antialiased bg-background overflow-x-hidden">
         {children}
         <Toaster />
+        <Script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js" />
+        <Script src="https://cdn.jsdelivr.net/npm/vanta/dist/vanta.waves.min.js" />
       </body>
     </html>
   );
