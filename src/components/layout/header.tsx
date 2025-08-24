@@ -20,17 +20,17 @@ export default function Header() {
 
   return (
     <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-      <div className="container flex h-14 items-center justify-between">
-        <div className="flex items-center">
-          <Link href="/" className="flex items-center space-x-2">
-            <Sparkles className="h-6 w-6 text-primary" />
-            <span className="font-bold font-headline text-lg">LocalSpark</span>
-          </Link>
-        </div>
-        
-        {/* Desktop Navigation & Quote Button */}
-        <div className="hidden md:flex items-center gap-6">
-          <nav className="flex items-center space-x-6 text-sm font-medium">
+      <div className="container flex h-14 items-center">
+        <div className="flex items-center justify-between w-full">
+          <div className="flex items-center">
+            <Link href="/" className="flex items-center space-x-2">
+              <Sparkles className="h-6 w-6 text-primary" />
+              <span className="font-bold font-headline text-lg">LocalSpark</span>
+            </Link>
+          </div>
+          
+          {/* Desktop Navigation */}
+          <nav className="hidden md:flex items-center space-x-6 text-sm font-medium mx-auto">
             {navLinks.map((link) => (
               <Link
                 key={link.href}
@@ -41,13 +41,17 @@ export default function Header() {
               </Link>
             ))}
           </nav>
-          <Link href="#contact">
-            <Button className="btn-gradient">Get a Quote</Button>
-          </Link>
+
+          {/* Desktop Quote Button */}
+          <div className="hidden md:flex items-center">
+            <Link href="#contact">
+              <Button className="btn-gradient">Get a Quote</Button>
+            </Link>
+          </div>
         </div>
         
         {/* Mobile Menu */}
-        <div className="md:hidden">
+        <div className="md:hidden ml-auto">
           <Sheet open={isMenuOpen} onOpenChange={setIsMenuOpen}>
             <SheetTrigger asChild>
               <Button variant="ghost" size="icon">
@@ -58,7 +62,7 @@ export default function Header() {
             <SheetContent side="right" className="w-[300px] sm:w-[400px]">
               <div className="flex flex-col h-full">
                 <div className="flex items-center justify-between p-4 border-b">
-                   <Link href="/" className="flex items-center space-x-2" onClick={() => setIsMenu-Open(false)}>
+                   <Link href="/" className="flex items-center space-x-2" onClick={() => setIsMenuOpen(false)}>
                     <Sparkles className="h-6 w-6 text-primary" />
                     <span className="font-bold font-headline text-lg">LocalSpark</span>
                   </Link>
