@@ -20,26 +20,27 @@ export default function Header() {
 
   return (
     <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-      <div className="container flex h-14 items-center">
-        <div className="mr-4 flex items-center">
-          <Link href="/" className="mr-6 flex items-center space-x-2">
+      <div className="container flex h-14 items-center justify-between">
+        <div className="flex items-center">
+          <Link href="/" className="flex items-center space-x-2">
             <Sparkles className="h-6 w-6 text-primary" />
             <span className="font-bold font-headline text-lg">LocalSpark</span>
           </Link>
         </div>
-        <div className="flex flex-1 items-center justify-end space-x-4">
-          <nav className="hidden md:flex items-center space-x-6 text-sm font-medium">
-            {navLinks.map((link) => (
-              <Link
-                key={link.href}
-                href={link.href}
-                className="transition-colors hover:text-primary"
-              >
-                {link.label}
-              </Link>
-            ))}
-          </nav>
-          <div className="flex items-center space-x-4">
+        
+        <nav className="hidden md:flex items-center space-x-6 text-sm font-medium">
+          {navLinks.map((link) => (
+            <Link
+              key={link.href}
+              href={link.href}
+              className="transition-colors hover:text-primary"
+            >
+              {link.label}
+            </Link>
+          ))}
+        </nav>
+
+        <div className="flex items-center space-x-4">
             <Link href="#contact" className='hidden md:inline-flex'>
               <Button className="btn-gradient">Get a Quote</Button>
             </Link>
@@ -73,12 +74,14 @@ export default function Header() {
                         {link.label}
                       </Link>
                     ))}
+                     <Link href="#contact" onClick={() => setIsMenuOpen(false)}>
+                        <Button className="w-full btn-gradient">Get a Quote</Button>
+                    </Link>
                   </nav>
                 </div>
               </SheetContent>
             </Sheet>
           </div>
-        </div>
       </div>
     </header>
   );
