@@ -6,14 +6,13 @@ export default function AboutSection() {
     <section id="about" className="py-20 md:py-32">
       <div className="container mx-auto px-4">
         <div className="grid md:grid-cols-2 gap-12 items-center">
-          <div className="relative w-full h-80 md:h-full rounded-lg overflow-hidden">
+          <div className="relative w-full h-80 md:h-full min-h-[400px] rounded-lg overflow-hidden">
              <Image
-                src="https://placehold.co/600x800.png"
+                src="/teamworkspace.png"
                 alt="Our Team"
                 layout="fill"
                 objectFit="cover"
                 className="rounded-lg"
-                data-ai-hint="team business"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
           </div>
