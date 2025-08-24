@@ -28,8 +28,9 @@ export default function Header() {
           </Link>
         </div>
         
-        <div className="flex items-center gap-4">
-          <nav className="hidden md:flex items-center space-x-6 text-sm font-medium">
+        {/* Desktop Navigation & Quote Button */}
+        <div className="hidden md:flex items-center gap-6">
+          <nav className="flex items-center space-x-6 text-sm font-medium">
             {navLinks.map((link) => (
               <Link
                 key={link.href}
@@ -40,14 +41,16 @@ export default function Header() {
               </Link>
             ))}
           </nav>
-        
-          <Link href="#contact" className='hidden md:inline-flex'>
+          <Link href="#contact">
             <Button className="btn-gradient">Get a Quote</Button>
           </Link>
-          
+        </div>
+        
+        {/* Mobile Menu */}
+        <div className="md:hidden">
           <Sheet open={isMenuOpen} onOpenChange={setIsMenuOpen}>
             <SheetTrigger asChild>
-              <Button variant="ghost" className="md:hidden">
+              <Button variant="ghost" size="icon">
                 <Menu className="h-6 w-6" />
                 <span className="sr-only">Open menu</span>
               </Button>
@@ -55,7 +58,7 @@ export default function Header() {
             <SheetContent side="right" className="w-[300px] sm:w-[400px]">
               <div className="flex flex-col h-full">
                 <div className="flex items-center justify-between p-4 border-b">
-                   <Link href="/" className="flex items-center space-x-2" onClick={() => setIsMenuOpen(false)}>
+                   <Link href="/" className="flex items-center space-x-2" onClick={() => setIsMenu-Open(false)}>
                     <Sparkles className="h-6 w-6 text-primary" />
                     <span className="font-bold font-headline text-lg">LocalSpark</span>
                   </Link>
