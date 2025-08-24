@@ -85,7 +85,7 @@ const ParticleWave = () => {
     };
   }, []);
 
-  return <canvas ref={canvasRef} className="absolute inset-0 -z-10" />;
+  return <canvas ref={canvasRef} className="absolute inset-0 -z-10 opacity-20" />;
 };
 
 export default ParticleWave;
