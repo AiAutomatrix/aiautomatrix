@@ -14,70 +14,95 @@ const ParticleWave = () => {
 
     let w: number, h: number;
     let animationFrameId: number;
+    const particles: Particle[] = [];
+    const particleCount = 70;
+    const colors = ["hsl(187, 100%, 50%)", "hsl(338, 100%, 62%)", "#ffffff"]; // Primary, Accent, White
 
     const resize = () => {
       w = canvas.width = window.innerWidth;
       h = canvas.height = window.innerHeight;
+      particles.length = 0; // Reset particles on resize
+      init();
     };
-
-    window.addEventListener('resize', resize);
-    resize();
 
     class Particle {
       x: number;
       y: number;
-      offset: number;
+      vx: number;
+      vy: number;
+      radius: number;
+      color: string;
 
-      constructor(x: number, y: number, offset: number) {
-        this.x = x;
-        this.y = y;
-        this.offset = offset; // phase offset for wave
+      constructor() {
+        this.x = Math.random() * w;
+        this.y = Math.random() * h;
+        this.vx = (Math.random() - 0.5) * 0.5;
+        this.vy = (Math.random() - 0.5) * 0.5;
+        this.radius = Math.random() * 1.5 + 1;
+        this.color = colors[Math.floor(Math.random() * colors.length)];
       }
 
-      update(time: number) {
-        // make particle wave up and down
-        this.y = h / 2 + Math.sin(time * 0.000125 + this.offset) * (h / 2.2);
+      update() {
+        this.x += this.vx;
+        this.y += this.vy;
+
+        if (this.x < 0 || this.x > w) this.vx *= -1;
+        if (this.y < 0 || this.y > h) this.vy *= -1;
       }
 
-      draw(time: number, i: number) {
-        // shifting colors with hue
-        const hue = (time / 20 + i * 3) % 360;
-        if (ctx) {
-            ctx.fillStyle = `hsl(${hue}, 100%, 50%)`;
+      draw() {
+        if(!ctx) return;
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+        ctx.fillStyle = this.color;
+        ctx.fill();
+      }
+    }
+
+    function init() {
+      for (let i = 0; i < particleCount; i++) {
+        particles.push(new Particle());
+      }
+    }
+
+    function connect() {
+      if(!ctx) return;
+      let opacityValue = 1;
+      for (let a = 0; a < particles.length; a++) {
+        for (let b = a; b < particles.length; b++) {
+          const distance = Math.sqrt(
+            Math.pow(particles[a].x - particles[b].x, 2) +
+            Math.pow(particles[a].y - particles[b].y, 2)
+          );
+
+          if (distance < 150) {
+            opacityValue = 1 - (distance / 150);
+            ctx.strokeStyle = `rgba(187, 100, 50, ${opacityValue})`; // A mix of colors could be complex, let's use a primary-like one for lines
             ctx.beginPath();
-            ctx.arc(this.x, this.y, 2, 0, Math.PI * 2);
-            ctx.fill();
+            ctx.moveTo(particles[a].x, particles[a].y);
+            ctx.lineTo(particles[b].x, particles[b].y);
+            ctx.lineWidth = 1;
+            ctx.stroke();
+          }
         }
       }
     }
 
-    const particles: Particle[] = [];
-    const numParticles = 200;
-    for (let i = 0; i < numParticles; i++) {
-      const x = (w / numParticles) * i;
-      const y = h / 2;
-      const offset = i * 0.2;
-      particles.push(new Particle(x, y, offset));
-    }
-
-    let lastTime = 0;
-    const animate = (time: number) => {
-      if (!lastTime) lastTime = time;
-      const deltaTime = time - lastTime;
-      lastTime = time;
-      
+    const animate = () => {
       if (ctx) {
         ctx.clearRect(0, 0, w, h);
-
-        particles.forEach((p, i) => {
-          p.update(time);
-          p.draw(time, i);
+        particles.forEach(p => {
+          p.update();
+          p.draw();
         });
+        connect();
       }
       animationFrameId = requestAnimationFrame(animate);
     };
 
-    animate(0);
+    window.addEventListener('resize', resize);
+    resize();
+    animate();
 
     return () => {
       window.removeEventListener('resize', resize);
