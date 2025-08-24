@@ -9,13 +9,21 @@ import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
+  DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
 
-const serviceLinks = [
+const coreServiceLinks = [
+  { href: '/services/web-design', label: 'Web Design' },
+  { href: '/services/web-development', label: 'Web Development' },
+  { href: '/services/seo-optimization', label: 'SEO Optimization' },
+  { href: '/services/digital-marketing', label: 'Digital Marketing' },
+];
+
+const aiServiceLinks = [
+  { href: '/services/ai-powered-website-building', label: 'AI-Powered Websites' },
   { href: '/services/ai-backend-development', label: 'AI Backend Development' },
   { href: '/services/custom-botpress-agent', label: 'Custom Botpress Agent' },
-  { href: '/services/ai-powered-website-building', label: 'AI-Powered Websites' },
 ]
 
 const navLinks = [
@@ -44,7 +52,15 @@ export default function Header() {
                 Services <ChevronDown className="h-4 w-4" />
               </DropdownMenuTrigger>
               <DropdownMenuContent>
-                {serviceLinks.map((link) => (
+                <p className="px-2 py-1.5 text-xs font-semibold text-muted-foreground">AI SOLUTIONS</p>
+                {aiServiceLinks.map((link) => (
+                  <DropdownMenuItem key={link.href} asChild>
+                    <Link href={link.href}>{link.label}</Link>
+                  </DropdownMenuItem>
+                ))}
+                <DropdownMenuSeparator />
+                 <p className="px-2 py-1.5 text-xs font-semibold text-muted-foreground">CORE SERVICES</p>
+                {coreServiceLinks.map((link) => (
                   <DropdownMenuItem key={link.href} asChild>
                     <Link href={link.href}>{link.label}</Link>
                   </DropdownMenuItem>
@@ -92,9 +108,20 @@ export default function Header() {
                         <span className="sr-only">Close menu</span>
                       </Button>
                     </div>
-                    <nav className="flex flex-col p-4 space-y-4">
-                      <p className="text-muted-foreground text-sm font-semibold">SERVICES</p>
-                      {serviceLinks.map((link) => (
+                    <nav className="flex flex-col p-4 space-y-4 overflow-y-auto">
+                      <p className="text-muted-foreground text-sm font-semibold">AI SOLUTIONS</p>
+                      {aiServiceLinks.map((link) => (
+                        <Link
+                          key={link.href}
+                          href={link.href}
+                          className="text-lg font-medium transition-colors hover:text-primary"
+                          onClick={() => setIsMenuOpen(false)}
+                        >
+                          {link.label}
+                        </Link>
+                      ))}
+                      <p className="text-muted-foreground text-sm font-semibold pt-4">CORE SERVICES</p>
+                       {coreServiceLinks.map((link) => (
                         <Link
                           key={link.href}
                           href={link.href}
@@ -115,7 +142,7 @@ export default function Header() {
                           {link.label}
                         </Link>
                       ))}
-                      <Link href="/#contact" onClick={() => setIsMenuOpen(false)}>
+                      <Link href="/#contact" onClick={() => setIsMenuOpen(false)} className="mt-auto">
                           <Button className="w-full btn-gradient">Get a Quote</Button>
                       </Link>
                     </nav>
