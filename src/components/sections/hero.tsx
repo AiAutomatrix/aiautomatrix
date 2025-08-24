@@ -4,7 +4,6 @@ import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { ArrowRight } from 'lucide-react';
 import VantaBackground from '@/components/vanta-background';
-import { useRef, useEffect } from 'react';
 
 export default function HeroSection() {
   
