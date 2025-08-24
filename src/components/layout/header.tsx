@@ -19,10 +19,10 @@ const serviceLinks = [
 ]
 
 const navLinks = [
-  { href: '#about', label: 'About' },
-  { href: '#testimonials', label: 'Reviews' },
-  { href: '#seo-tool', label: 'SEO Tool' },
-  { href: '#contact', label: 'Contact' },
+  { href: '/#about', label: 'About' },
+  { href: '/#testimonials', label: 'Reviews' },
+  { href: '/#seo-tool', label: 'SEO Tool' },
+  { href: '/#contact', label: 'Contact' },
 ];
 
 export default function Header() {
@@ -66,7 +66,7 @@ export default function Header() {
         <div className="flex items-center gap-4">
             {/* Desktop Quote Button */}
             <div className="hidden md:flex">
-              <Link href="#contact">
+              <Link href="/#contact">
                 <Button className="btn-gradient">Get a Quote</Button>
               </Link>
             </div>
@@ -115,7 +115,7 @@ export default function Header() {
                           {link.label}
                         </Link>
                       ))}
-                      <Link href="#contact" onClick={() => setIsMenuOpen(false)}>
+                      <Link href="/#contact" onClick={() => setIsMenuOpen(false)}>
                           <Button className="w-full btn-gradient">Get a Quote</Button>
                       </Link>
                     </nav>
