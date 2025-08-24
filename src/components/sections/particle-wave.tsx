@@ -36,31 +36,36 @@ const ParticleWave = () => {
 
       update(time: number) {
         // make particle wave up and down
-        this.y = h / 2 + Math.sin(time * 0.002 + this.offset) * 120;
+        this.y = h / 2 + Math.sin(time * 0.001 + this.offset) * 50;
       }
 
       draw(time: number, i: number) {
         // shifting colors with hue
-        const hue = (time / 20 + i * 5) % 360;
+        const hue = (time / 20 + i * 3) % 360;
         if (ctx) {
             ctx.fillStyle = `hsl(${hue}, 100%, 50%)`;
             ctx.beginPath();
-            ctx.arc(this.x, this.y, 4, 0, Math.PI * 2);
+            ctx.arc(this.x, this.y, 2, 0, Math.PI * 2);
             ctx.fill();
         }
       }
     }
 
     const particles: Particle[] = [];
-    const numParticles = 150;
+    const numParticles = 200;
     for (let i = 0; i < numParticles; i++) {
       const x = (w / numParticles) * i;
       const y = h / 2;
-      const offset = i * 0.3;
+      const offset = i * 0.2;
       particles.push(new Particle(x, y, offset));
     }
 
+    let lastTime = 0;
     const animate = (time: number) => {
+      if (!lastTime) lastTime = time;
+      const deltaTime = time - lastTime;
+      lastTime = time;
+      
       if (ctx) {
         ctx.clearRect(0, 0, w, h);
 
@@ -80,7 +85,7 @@ const ParticleWave = () => {
     };
   }, []);
 
-  return <canvas ref={canvasRef} className="absolute inset-0 -z-10 bg-background" />;
+  return <canvas ref={canvasRef} className="absolute inset-0 z-20 opacity-50" />;
 };
 
 export default ParticleWave;
