@@ -1,4 +1,3 @@
-import Image from 'next/image';
 import { Card } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
@@ -43,7 +42,14 @@ export default function ContactSection() {
                 <p className="text-muted-foreground">hello@localspark.dev</p>
               </div>
               <div className="w-full h-64 rounded-lg overflow-hidden mt-6">
-                 <Image src="https://placehold.co/600x400.png" alt="Map" width={600} height={400} className="w-full h-full object-cover" data-ai-hint="map city" />
+                 <iframe
+                    className="w-full h-full"
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d201821.5034371191!2d-122.58334965371399!3d37.75769499999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80859a6d00690021%3A0x4a501367f076adff!2sSan%20Francisco%2C%20CA!5e0!3m2!1sen!2sus!4v1700000000000"
+                    style={{ border: 0 }}
+                    allowFullScreen={true}
+                    loading="lazy"
+                    referrerPolicy="no-referrer-when-downgrade"
+                  ></iframe>
               </div>
             </div>
           </div>
