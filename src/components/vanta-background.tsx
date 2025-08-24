@@ -1,6 +1,6 @@
 "use client"
 
-import { useState, useEffect, useRef } from 'react'
+import { useState, useEffect, type RefObject } from 'react'
 
 // Correctly type the window object to include VANTA
 declare global {
@@ -12,13 +12,16 @@ declare global {
   }
 }
 
-const VantaBackground = () => {
+interface VantaBackgroundProps {
+  vantaRef: RefObject<HTMLDivElement>;
+}
+
+const VantaBackground = ({ vantaRef }: VantaBackgroundProps) => {
   const [vantaEffect, setVantaEffect] = useState<any>(null)
-  const vantaRef = useRef(null)
 
   useEffect(() => {
     let effect: any;
-    if (window.VANTA && window.THREE) {
+    if (window.VANTA && window.THREE && vantaRef.current) {
       effect = window.VANTA.WAVES({
         el: vantaRef.current,
         THREE: window.THREE,
@@ -40,9 +43,9 @@ const VantaBackground = () => {
     return () => {
       if (effect) effect.destroy()
     }
-  }, [])
+  }, [vantaRef])
 
-  return <div ref={vantaRef} className="absolute inset-0 -z-10" />
+  return null
 }
 
 export default VantaBackground;
