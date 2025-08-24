@@ -2,12 +2,23 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
-import { Menu, Sparkles, X } from 'lucide-react';
+import { Menu, Sparkles, X, ChevronDown } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu"
+
+const serviceLinks = [
+  { href: '/services/ai-backend-development', label: 'AI Backend Development' },
+  { href: '/services/custom-botpress-agent', label: 'Custom Botpress Agent' },
+  { href: '/services/ai-powered-website-building', label: 'AI-Powered Websites' },
+]
 
 const navLinks = [
-  { href: '#services', label: 'Services' },
   { href: '#about', label: 'About' },
   { href: '#testimonials', label: 'Reviews' },
   { href: '#seo-tool', label: 'SEO Tool' },
@@ -28,6 +39,18 @@ export default function Header() {
         <div className="flex-1 flex justify-center">
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center space-x-6 text-sm font-medium">
+             <DropdownMenu>
+              <DropdownMenuTrigger className="flex items-center gap-1 transition-colors hover:text-primary outline-none">
+                Services <ChevronDown className="h-4 w-4" />
+              </DropdownMenuTrigger>
+              <DropdownMenuContent>
+                {serviceLinks.map((link) => (
+                  <DropdownMenuItem key={link.href} asChild>
+                    <Link href={link.href}>{link.label}</Link>
+                  </DropdownMenuItem>
+                ))}
+              </DropdownMenuContent>
+            </DropdownMenu>
             {navLinks.map((link) => (
               <Link
                 key={link.href}
@@ -70,6 +93,18 @@ export default function Header() {
                       </Button>
                     </div>
                     <nav className="flex flex-col p-4 space-y-4">
+                      <p className="text-muted-foreground text-sm font-semibold">SERVICES</p>
+                      {serviceLinks.map((link) => (
+                        <Link
+                          key={link.href}
+                          href={link.href}
+                          className="text-lg font-medium transition-colors hover:text-primary"
+                          onClick={() => setIsMenuOpen(false)}
+                        >
+                          {link.label}
+                        </Link>
+                      ))}
+                      <p className="text-muted-foreground text-sm font-semibold pt-4">MENU</p>
                       {navLinks.map((link) => (
                         <Link
                           key={link.href}
