@@ -8,11 +8,12 @@ export default function AboutSection() {
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <div className="relative w-full h-80 md:h-full min-h-[400px] rounded-lg overflow-hidden">
              <Image
-                src="/teamworkspace.png"
+                src="https://placehold.co/600x400.png"
                 alt="Our Team"
                 layout="fill"
                 objectFit="cover"
                 className="rounded-lg"
+                data-ai-hint="team workspace"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
           </div>

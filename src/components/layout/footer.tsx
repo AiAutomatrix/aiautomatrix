@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { Sparkles, Github, Twitter, Linkedin } from 'lucide-react';
+import { Sparkles, Github, Twitter, Linkedin, Facebook } from 'lucide-react';
 
 export default function Footer() {
   return (
@@ -26,9 +26,9 @@ export default function Footer() {
           <div>
             <h3 className="font-headline text-lg font-semibold mb-4">Connect With Us</h3>
             <div className="flex space-x-4">
-              <a href="#" className="text-muted-foreground hover:text-primary transition-colors"><Github /></a>
-              <a href="#" className="text-muted-foreground hover:text-primary transition-colors"><Twitter /></a>
-              <a href="#" className="text-muted-foreground hover:text-primary transition-colors"><Linkedin /></a>
+              <a href="https://twitter.com/aiautomatrix" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors"><Twitter /></a>
+              <a href="https://www.linkedin.com/company/aiautomatrix" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors"><Linkedin /></a>
+              <a href="https://www.facebook.com/aiautomatrix" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors"><Facebook /></a>
             </div>
           </div>
         </div>
