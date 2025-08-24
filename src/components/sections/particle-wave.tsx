@@ -36,7 +36,7 @@ const ParticleWave = () => {
 
       update(time: number) {
         // make particle wave up and down
-        this.y = h / 2 + Math.sin(time * 0.00025 + this.offset) * (h / 2.2);
+        this.y = h / 2 + Math.sin(time * 0.000125 + this.offset) * (h / 2.2);
       }
 
       draw(time: number, i: number) {
@@ -85,7 +85,7 @@ const ParticleWave = () => {
     };
   }, []);
 
-  return <canvas ref={canvasRef} className="absolute inset-0 z-0 opacity-10" />;
+  return <canvas ref={canvasRef} className="absolute inset-0 -z-10" />;
 };
 
 export default ParticleWave;
