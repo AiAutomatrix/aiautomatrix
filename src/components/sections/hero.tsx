@@ -24,9 +24,9 @@ export default function HeroSection() {
               <ArrowRight className="ml-2 h-5 w-5" />
             </Button>
           </Link>
-          <Link href="#gallery">
+          <Link href="#seo-tool">
             <Button size="lg" variant="outline">
-              See Our Work
+              SEO Tool
             </Button>
           </Link>
         </div>
