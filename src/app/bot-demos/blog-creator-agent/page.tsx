@@ -13,7 +13,7 @@ export default function BlogCreatorAgentPage() {
     <>
       <Header />
       <BotDemoPageLayout
-        title="Blog Creator Agent"
+        title={<>Blog Creator <span className="text-gradient">Agent</span></>}
         subtitle="Helps brainstorm, outline, and generate drafts for blog content."
         description="Beat writer's block and supercharge your content marketing. This creative assistant helps you brainstorm topics, structure your articles, and even write entire sections of a blog post. It's the perfect tool for busy marketing teams and solo creators."
         examplePrompts={["Give me 5 blog ideas about AI in marketing.", "Write an intro for a post about chatbots."]}

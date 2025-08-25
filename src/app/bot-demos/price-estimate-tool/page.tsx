@@ -13,7 +13,7 @@ export default function PriceEstimateToolPage() {
     <>
       <Header />
       <BotDemoPageLayout
-        title="Price Estimate Tool"
+        title={<>Price Estimate <span className="text-gradient">Tool</span></>}
         subtitle="Provides instant, dynamic quotes for services based on user input."
         description="Empower your customers with self-service price estimation. This agent guides users through a series of questions to understand their needs and provides an instant, customized quote for your services, reducing friction and accelerating the sales cycle."
         examplePrompts={["I need a quote for a new website.", "How much does SEO cost?"]}

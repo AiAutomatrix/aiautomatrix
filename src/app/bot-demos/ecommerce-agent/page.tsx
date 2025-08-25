@@ -13,7 +13,7 @@ export default function EcommerceAgentPage() {
     <>
       <Header />
       <BotDemoPageLayout
-        title="E-commerce Agent"
+        title={<>E-commerce <span className="text-gradient">Agent</span></>}
         subtitle="Assists with product discovery, order tracking, and purchases."
         description="This AI-powered shopping assistant helps customers find products, check their order status, and even complete purchases directly within the chat. It can integrate with your inventory system to provide real-time availability and recommendations, boosting sales and customer satisfaction."
         examplePrompts={["Do you have any blue t-shirts?", "Where is my order?"]}

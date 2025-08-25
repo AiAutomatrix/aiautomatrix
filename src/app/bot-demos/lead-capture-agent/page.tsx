@@ -13,7 +13,7 @@ export default function LeadCaptureAgentPage() {
     <>
       <Header />
       <BotDemoPageLayout
-        title="Lead Capture Agent"
+        title={<>Lead Capture <span className="text-gradient">Agent</span></>}
         subtitle="Engages visitors and intelligently captures qualified leads for your sales team."
         description="Turn more website visitors into valuable leads. This agent proactively engages users, asks qualifying questions, and collects contact information in a natural, conversational way. It can integrate directly with your CRM to streamline your sales pipeline."
         examplePrompts={["I'd like to get a quote.", "Can someone contact me?"]}

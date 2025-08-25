@@ -13,7 +13,7 @@ export default function MentalHealthTrackerPage() {
     <>
       <Header />
       <BotDemoPageLayout
-        title="Mental Health Tracker"
+        title={<>Mental Health <span className="text-gradient">Tracker</span></>}
         subtitle="A supportive companion for logging moods and providing resources."
         description="This empathetic agent provides a safe and non-judgmental space for users to track their daily mood, journal their thoughts, and access helpful resources. It's designed to promote mindfulness and emotional well-being through gentle, guided conversation."
         examplePrompts={["I'm feeling anxious today.", "Log my mood as happy."]}

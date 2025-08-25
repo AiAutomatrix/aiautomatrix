@@ -13,7 +13,7 @@ export default function CustomerServiceAgentPage() {
     <>
       <Header />
       <BotDemoPageLayout
-        title="Customer Service Agent"
+        title={<>Customer Service <span className="text-gradient">Agent</span></>}
         subtitle="Answers FAQs, books appointments, and makes support simple."
         description="This agent is designed to be the first point of contact for your customers. It can handle frequently asked questions, schedule appointments directly into a calendar, and escalate complex issues to a human agent, all while providing a seamless and friendly user experience."
         examplePrompts={["When are you open?", "Book me an appointment for Thursday."]}

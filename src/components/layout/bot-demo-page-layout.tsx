@@ -1,9 +1,10 @@
 import Link from "next/link";
 import { Button } from "../ui/button";
 import { ArrowLeft } from "lucide-react";
+import React from "react";
 
 interface BotDemoPageLayoutProps {
-  title: string;
+  title: React.ReactNode;
   subtitle: string;
   description: string;
   examplePrompts: string[];
@@ -43,7 +44,7 @@ export default function BotDemoPageLayout({ title, subtitle, description, exampl
             <iframe
               src={iframeSrc}
               className="w-full h-[600px] md:h-[700px] border-0 rounded-md"
-              title={title}
+              title={title?.toString()}
             ></iframe>
           </div>
         </div>

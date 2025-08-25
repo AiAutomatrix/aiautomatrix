@@ -13,7 +13,7 @@ export default function CryptoTrackerPage() {
     <>
       <Header />
       <BotDemoPageLayout
-        title="Crypto Tracker"
+        title={<>Crypto <span className="text-gradient">Tracker</span></>}
         subtitle="Fetches and displays real-time cryptocurrency prices and data."
         description="This agent connects to a live crypto API to provide up-to-the-minute price information for various cryptocurrencies. It demonstrates the power of integrating external data sources into a conversational AI to provide instant, accurate information to users."
         examplePrompts={["What's the price of Bitcoin?", "Show me the price of Ethereum."]}
