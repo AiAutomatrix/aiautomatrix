@@ -90,6 +90,22 @@ export default function BotDemosHubPage() {
                 </Card>
               ))}
             </div>
+
+            <div className="text-center mt-20">
+              <h2 className="font-headline text-3xl md:text-4xl font-bold tracking-tighter mb-4">
+                Ready to Automate Your Business?
+              </h2>
+              <p className="max-w-2xl mx-auto text-lg text-muted-foreground mb-8">
+                Let's build a custom AI solution that fits your unique needs.
+              </p>
+              <Link href="/#contact">
+                <Button size="lg" className="btn-gradient">
+                  Get a Custom Quote
+                  <ArrowRight className="ml-2 h-5 w-5" />
+                </Button>
+              </Link>
+            </div>
+
           </div>
         </section>
       </main>
