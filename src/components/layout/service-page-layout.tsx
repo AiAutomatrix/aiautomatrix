@@ -1,6 +1,7 @@
 import { ArrowRight, CheckCircle } from "lucide-react";
 import { Button } from "../ui/button";
 import Link from "next/link";
+import React from "react";
 
 interface ServicePageLayoutProps {
   title: React.ReactNode;
@@ -11,9 +12,13 @@ interface ServicePageLayoutProps {
   }[];
   imageUrl: string;
   imageHint: string;
+  secondaryAction?: {
+    href: string;
+    label: string;
+  }
 }
 
-export default function ServicePageLayout({ title, subtitle, features, imageUrl, imageHint }: ServicePageLayoutProps) {
+export default function ServicePageLayout({ title, subtitle, features, imageUrl, imageHint, secondaryAction }: ServicePageLayoutProps) {
   return (
     <div className="flex min-h-screen flex-col">
       <main className="flex-1">
@@ -56,13 +61,21 @@ export default function ServicePageLayout({ title, subtitle, features, imageUrl,
               </div>
             </div>
 
-            <div className="text-center mt-20">
+            <div className="text-center mt-20 flex justify-center gap-4">
                 <Link href="/#contact">
                     <Button size="lg" className="btn-gradient">
                         Get a Custom Quote
                         <ArrowRight className="ml-2 h-5 w-5" />
                     </Button>
                 </Link>
+                {secondaryAction && (
+                  <Link href={secondaryAction.href}>
+                      <Button size="lg" variant="outline">
+                          {secondaryAction.label}
+                          <ArrowRight className="ml-2 h-5 w-5" />
+                      </Button>
+                  </Link>
+                )}
             </div>
           </div>
         </section>

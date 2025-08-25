@@ -37,6 +37,7 @@ export default function CustomBotpressAgentPage() {
         features={features}
         imageUrl="https://placehold.co/600x400.png"
         imageHint="chatbot conversation interface"
+        secondaryAction={{ href: "/bot-demos", label: "View Demos" }}
       />
       <Footer />
     </>
