@@ -28,6 +28,7 @@ const aiServiceLinks = [
 
 const navLinks = [
   { href: '/#about', label: 'About' },
+  { href: '/bot-demos', label: 'Bot Demos' },
   { href: '/#testimonials', label: 'Reviews' },
   { href: '/#seo-tool', label: 'SEO Tool' },
   { href: '/#contact', label: 'Contact' },
