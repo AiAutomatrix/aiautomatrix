@@ -51,12 +51,17 @@ export default function BotDemoPageLayout({ title, subtitle, description, exampl
         {/* Footer Section */}
         <div className="text-center">
             <p className="mb-4 text-muted-foreground">Want an agent like this on your site? Contact us to build your own.</p>
-            <Link href="/bot-demos">
-                <Button variant="outline" className="group">
-                    <ArrowLeft className="mr-2 h-4 w-4 transition-transform group-hover:-translate-x-1" />
-                    Back to Demo Hub
-                </Button>
-            </Link>
+            <div className="flex justify-center gap-4">
+              <Link href="/#contact">
+                <Button className="btn-gradient">Get a Custom Quote</Button>
+              </Link>
+              <Link href="/bot-demos">
+                  <Button variant="outline" className="group">
+                      <ArrowLeft className="mr-2 h-4 w-4 transition-transform group-hover:-translate-x-1" />
+                      Back to Demo Hub
+                  </Button>
+              </Link>
+            </div>
         </div>
       </div>
     </div>
