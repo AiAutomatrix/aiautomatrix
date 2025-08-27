@@ -10,6 +10,17 @@ export const metadata: Metadata = {
 
 const chatScripts = `
   <html>
+    <head>
+      <style>
+        html, body {
+          height: 100%;
+          width: 100%;
+          margin: 0;
+          padding: 0;
+          overflow: hidden;
+        }
+      </style>
+    </head>
     <body>
       <script src="https://cdn.botpress.cloud/webchat/v3.2/inject.js"><\/script>
       <script src="https://files.bpcontent.cloud/2025/08/26/22/20250826221413-HL4C5ZIZ.js" defer><\/script>
