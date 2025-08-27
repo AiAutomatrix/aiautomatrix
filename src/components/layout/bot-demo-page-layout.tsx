@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { Button } from "../ui/button";
-import { ArrowLeft, ArrowRight } from "lucide-react";
+import { ArrowLeft } from "lucide-react";
 import React from "react";
 
 interface BotDemoPageLayoutProps {
@@ -8,12 +8,11 @@ interface BotDemoPageLayoutProps {
   subtitle: string;
   description: string;
   examplePrompts: string[];
-  webchatComponent?: React.ReactNode;
   iframeSrc?: string;
   iframeSrcDoc?: string;
 }
 
-export default function BotDemoPageLayout({ title, subtitle, description, examplePrompts, iframeSrc, webchatComponent, iframeSrcDoc }: BotDemoPageLayoutProps) {
+export default function BotDemoPageLayout({ title, subtitle, description, examplePrompts, iframeSrc, iframeSrcDoc }: BotDemoPageLayoutProps) {
   return (
     <div className="container mx-auto px-4 py-12 md:py-20">
       <div className="max-w-4xl mx-auto">
@@ -42,17 +41,15 @@ export default function BotDemoPageLayout({ title, subtitle, description, exampl
         {/* Webchat Demo Section */}
         <div className="mb-12">
           <p className="text-center font-semibold text-muted-foreground mb-4">Live Demo – Chat with the Agent</p>
-          <div className="rounded-lg shadow-2xl overflow-hidden border border-border/20 card-glass p-2">
-            {webchatComponent ? (
-              webchatComponent
-            ) : (
-              <iframe
-                src={iframeSrc}
-                srcDoc={iframeSrcDoc}
-                className="w-full h-[600px] md:h-[700px] border-0 rounded-md"
-                title={title?.toString()}
-              ></iframe>
-            )}
+          <div className="flex justify-center">
+            <div className="w-full max-w-sm rounded-lg shadow-2xl overflow-hidden border border-border/20 card-glass p-2">
+                <iframe
+                    src={iframeSrc}
+                    srcDoc={iframeSrcDoc}
+                    className="w-full h-[600px] md:h-[700px] border-0 rounded-md"
+                    title={title?.toString()}
+                ></iframe>
+            </div>
           </div>
         </div>
 
