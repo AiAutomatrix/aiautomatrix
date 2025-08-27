@@ -10,9 +10,10 @@ interface BotDemoPageLayoutProps {
   examplePrompts: string[];
   webchatComponent?: React.ReactNode;
   iframeSrc?: string;
+  iframeSrcDoc?: string;
 }
 
-export default function BotDemoPageLayout({ title, subtitle, description, examplePrompts, iframeSrc, webchatComponent }: BotDemoPageLayoutProps) {
+export default function BotDemoPageLayout({ title, subtitle, description, examplePrompts, iframeSrc, webchatComponent, iframeSrcDoc }: BotDemoPageLayoutProps) {
   return (
     <div className="container mx-auto px-4 py-12 md:py-20">
       <div className="max-w-4xl mx-auto">
@@ -47,6 +48,7 @@ export default function BotDemoPageLayout({ title, subtitle, description, exampl
             ) : (
               <iframe
                 src={iframeSrc}
+                srcDoc={iframeSrcDoc}
                 className="w-full h-[600px] md:h-[700px] border-0 rounded-md"
                 title={title?.toString()}
               ></iframe>
