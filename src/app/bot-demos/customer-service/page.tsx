@@ -17,7 +17,7 @@ export default function CustomerServiceAgentPage() {
         subtitle="Answers FAQs, books appointments, and makes support simple."
         description="This agent is designed to be the first point of contact for your customers. It can handle frequently asked questions, schedule appointments directly into a calendar, and escalate complex issues to a human agent, all while providing a seamless and friendly user experience."
         examplePrompts={["When are you open?", "Book me an appointment for Thursday."]}
-        iframeSrc="https://mediafiles.botpress.cloud/2025/08/26/22/20250826221413-HL4C5ZIZ/webchat/bot.html"
+        iframeSrc="https://mediafiles.botpress.cloud/20250826221413-HL4C5ZIZ/webchat/bot.html"
       />
       <Footer />
     </>
