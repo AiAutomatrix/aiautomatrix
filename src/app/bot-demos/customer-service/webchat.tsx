@@ -17,13 +17,17 @@ export default function CustomerServiceWebchat() {
 
     return () => {
       // Cleanup the scripts when the component unmounts
-      document.body.removeChild(injectScript);
-      document.body.removeChild(configScript);
+      const allScripts = document.querySelectorAll('script[src*="botpress"]');
+      allScripts.forEach(s => s.remove());
+      const webchatDiv = document.querySelector('#botpress-webchat-container');
+       if (webchatDiv) {
+        webchatDiv.remove();
+       }
     }
   }, []);
 
   return (
-    <div className="w-full h-[600px] md:h-[700px] flex items-center justify-center">
+    <div id="botpress-webchat-container" className="w-full h-[600px] md:h-[700px] flex items-center justify-center">
       {/* The webchat will be injected into the page by the scripts */}
     </div>
   );
