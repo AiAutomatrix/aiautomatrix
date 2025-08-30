@@ -12,6 +12,12 @@ export default function HeroSection() {
     <section className="relative overflow-hidden pt-20 pb-20 md:pt-32 md:pb-24">
       <ParticleWave />
       <div className="relative z-10 container text-center flex flex-col items-center">
+        <h1 className="font-headline text-3xl md:text-5xl font-bold tracking-tighter mb-4">
+          <span className="text-gradient">Stop Losing Leads. Start Automating Sales.</span>
+        </h1>
+        <p className="max-w-3xl mx-auto text-lg md:text-xl text-muted-foreground mb-8">
+          We scrape your website, build a custom AI agent, and put it live — no code, no hassle.
+        </p>
         <div className="max-w-4xl mx-auto mb-8">
             <Image
                 src="/sales.png"
@@ -21,12 +27,6 @@ export default function HeroSection() {
                 priority
             />
         </div>
-        <h1 className="font-headline text-3xl md:text-5xl font-bold tracking-tighter mb-4">
-          <span className="text-gradient">Stop Losing Leads. Start Automating Sales.</span>
-        </h1>
-        <p className="max-w-3xl mx-auto text-lg md:text-xl text-muted-foreground mb-8">
-          We scrape your website, build a custom AI agent, and put it live — no code, no hassle.
-        </p>
         <div className="flex flex-wrap justify-center gap-4">
           <Link href="#contact">
             <Button size="lg" className="btn-gradient">
