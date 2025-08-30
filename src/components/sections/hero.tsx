@@ -15,12 +15,12 @@ export default function HeroSection() {
           <span className="text-gradient">Turn Your Website Into a 24/7 Sales & Support Agent</span>
         </h1>
         <p className="max-w-3xl mx-auto text-lg md:text-xl text-muted-foreground mb-8">
-          An AI agent that captures leads, answers questions, and books appointments for you. We scrape your website, build a custom AI agent, and put it live — no code, no hassle.
+          We scrape your website, build a custom AI agent, and put it live — no code, no hassle.
         </p>
         <div className="flex flex-wrap justify-center gap-4">
-          <Link href="#services">
+          <Link href="#contact">
             <Button size="lg" className="btn-gradient">
-              Explore Our Services
+              Get this for my website
               <ArrowRight className="ml-2 h-5 w-5" />
             </Button>
           </Link>
