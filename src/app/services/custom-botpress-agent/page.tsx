@@ -35,8 +35,8 @@ export default function CustomBotpressAgentPage() {
         title={<>Custom <span className="text-gradient">Botpress Agents</span></>}
         subtitle="We design and build sophisticated AI-powered chatbots that deliver personalized customer experiences, automate support, and streamline operations."
         features={features}
-        imageUrl="https://placehold.co/600x400.png"
-        imageHint="chatbot conversation interface"
+        imageUrl="/support.png"
+        imageHint="customer support agent"
         secondaryAction={{ href: "/bot-demos", label: "View Demos" }}
       />
       <Footer />
