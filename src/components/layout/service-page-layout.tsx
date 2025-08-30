@@ -34,17 +34,18 @@ export default function ServicePageLayout({ title, subtitle, features, imageUrl,
               </p>
             </div>
 
-            <div className="grid md:grid-cols-2 gap-12 items-center mt-20">
-              <div className="relative w-full h-96 md:h-full min-h-[450px] rounded-lg overflow-hidden bg-card/50 flex items-center justify-center p-4">
+            <div className="mt-20">
+              <div className="flex justify-center mb-12">
                 <img
                     src={imageUrl}
                     alt={imageHint}
-                    className="w-full h-full object-cover"
+                    className="max-w-2xl w-full h-auto rounded-lg shadow-lg"
                     data-ai-hint={imageHint}
                 />
               </div>
-              <div>
-                <h2 className="font-headline text-3xl md:text-4xl font-bold mb-6">
+
+              <div className="max-w-3xl mx-auto">
+                <h2 className="font-headline text-3xl md:text-4xl font-bold mb-8 text-center">
                   Key <span className="text-gradient">Features</span>
                 </h2>
                 <ul className="space-y-6">
