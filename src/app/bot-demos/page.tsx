@@ -3,7 +3,7 @@ import { Button } from '@/components/ui/button';
 import Link from 'next/link';
 import Header from '@/components/layout/header';
 import Footer from '@/components/layout/footer';
-import { ArrowRight, Bot, HeartHandshake, ShoppingCart, FileText, Calculator, Pencil, AreaChart, Home } from 'lucide-react';
+import { ArrowRight, Bot, HeartHandshake, ShoppingCart, FileText, Calculator, Pencil, AreaChart, Home, Car } from 'lucide-react';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
@@ -23,6 +23,12 @@ const demoAgents = [
     title: 'Real Estate Agent',
     description: 'Finds property listings, schedules viewings, and answers real estate questions.',
     link: '/bot-demos/real-estate-agent',
+  },
+  {
+    icon: <Car className="h-10 w-10 text-primary" />,
+    title: 'Vehicle Evaluation Agent',
+    description: 'Researches vehicle reviews, common problems, and provides price estimates.',
+    link: '/bot-demos/vehicle-evaluation-agent',
   },
   {
     icon: <ShoppingCart className="h-10 w-10 text-primary" />,
