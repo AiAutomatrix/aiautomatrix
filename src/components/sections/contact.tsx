@@ -23,6 +23,7 @@ export default function ContactSection() {
               <form className="space-y-4">
                 <Input type="text" placeholder="Your Name" className="bg-background/50" />
                 <Input type="email" placeholder="Your Email" className="bg-background/50" />
+                <Input type="url" placeholder="Your Website (optional)" className="bg-background/50" />
                 <Textarea placeholder="Your Message" className="bg-background/50 min-h-[150px]" />
                 <Button type="submit" className="w-full btn-gradient">Send Message</Button>
               </form>
@@ -35,7 +36,7 @@ export default function ContactSection() {
               </div>
               <div className="flex items-center space-x-4">
                 <Phone className="h-6 w-6 text-primary" />
-                <p className="text-muted-foreground">(431) 800-3148</p>
+                <p className="text-muted-foreground">(204) 291-8210</p>
               </div>
               <div className="flex items-center space-x-4">
                 <Mail className="h-6 w-6 text-primary" />
