@@ -2,6 +2,7 @@ import { ArrowRight, CheckCircle } from "lucide-react";
 import { Button } from "../ui/button";
 import Link from "next/link";
 import React from "react";
+import Image from "next/image";
 
 interface ServicePageLayoutProps {
   title: React.ReactNode;
@@ -34,14 +35,13 @@ export default function ServicePageLayout({ title, subtitle, features, imageUrl,
             </div>
 
             <div className="grid md:grid-cols-2 gap-12 items-center mt-20">
-              <div className="relative w-full h-80 md:h-full min-h-[400px] rounded-lg overflow-hidden">
+              <div className="relative w-full h-96 md:h-full min-h-[450px] rounded-lg overflow-hidden bg-card/50 flex items-center justify-center p-4">
                 <img
                     src={imageUrl}
                     alt={imageHint}
-                    className="w-full h-full object-cover"
+                    className="w-full h-full object-contain"
                     data-ai-hint={imageHint}
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
               </div>
               <div>
                 <h2 className="font-headline text-3xl md:text-4xl font-bold mb-6">
