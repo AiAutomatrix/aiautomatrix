@@ -1,3 +1,4 @@
+
 "use client";
 
 import React, { useRef, useEffect } from 'react';
@@ -15,12 +16,12 @@ const ParticleWave = () => {
     let w: number, h: number;
     let animationFrameId: number;
     const particles: Particle[] = [];
-    const particleCount = 70;
+    const particleCount = 40; // Reduced particle count for optimization
     const colors = ["hsl(187, 100%, 50%)", "hsl(338, 100%, 62%)", "#ffffff"]; // Primary, Accent, White
 
     const resize = () => {
       w = canvas.width = window.innerWidth;
-      h = canvas.height = canvas.parentElement?.offsetHeight || window.innerHeight;
+      h = canvas.parentElement?.offsetHeight || window.innerHeight;
       particles.length = 0; // Reset particles on resize
       init();
     };
@@ -75,9 +76,9 @@ const ParticleWave = () => {
             Math.pow(particles[a].y - particles[b].y, 2)
           );
 
-          if (distance < 150) {
-            opacityValue = 1 - (distance / 150);
-            ctx.strokeStyle = `rgba(187, 100, 50, ${opacityValue})`; // A mix of colors could be complex, let's use a primary-like one for lines
+          if (distance < 200) { // Increased distance for fewer particles
+            opacityValue = 1 - (distance / 200);
+            ctx.strokeStyle = `rgba(187, 100, 50, ${opacityValue})`;
             ctx.beginPath();
             ctx.moveTo(particles[a].x, particles[a].y);
             ctx.lineTo(particles[b].x, particles[b].y);
