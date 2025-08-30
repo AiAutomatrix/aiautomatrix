@@ -1,3 +1,6 @@
+"use client";
+
+import { useState } from 'react';
 import { Card } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
@@ -6,6 +9,17 @@ import { Phone, Mail, MapPin } from 'lucide-react';
 import Link from 'next/link';
 
 export default function ContactSection() {
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [website, setWebsite] = useState('');
+  const [message, setMessage] = useState('');
+
+  const handleSendMessage = () => {
+    const subject = `New message from ${name}`;
+    const body = `Name: ${name}\nEmail: ${email}\nWebsite: ${website}\n\nMessage:\n${message}`;
+    window.location.href = `mailto:aiautomatrix@outlook.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+  };
+
   return (
     <section id="contact" className="py-20 md:py-32 bg-secondary/20">
       <div className="container mx-auto px-4">
@@ -22,13 +36,36 @@ export default function ContactSection() {
             <div>
               <h3 className="font-headline text-2xl font-bold mb-6">Send us a message</h3>
               <div className="space-y-4">
-                <Input type="text" placeholder="Your Name" className="bg-background/50" />
-                <Input type="email" placeholder="Your Email" className="bg-background/50" />
-                <Input type="url" placeholder="Your Website (optional)" className="bg-background/50" />
-                <Textarea placeholder="Your Message" className="bg-background/50 min-h-[150px]" />
-                <Link href="mailto:aiautomatrix@outlook.com" className="w-full">
-                  <Button className="w-full btn-gradient">Send Message</Button>
-                </Link>
+                <Input 
+                  type="text" 
+                  placeholder="Your Name" 
+                  className="bg-background/50"
+                  value={name}
+                  onChange={(e) => setName(e.target.value)}
+                />
+                <Input 
+                  type="email" 
+                  placeholder="Your Email" 
+                  className="bg-background/50"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                />
+                <Input 
+                  type="url" 
+                  placeholder="Your Website (optional)" 
+                  className="bg-background/50"
+                  value={website}
+                  onChange={(e) => setWebsite(e.target.value)}
+                />
+                <Textarea 
+                  placeholder="Your Message" 
+                  className="bg-background/50 min-h-[150px]"
+                  value={message}
+                  onChange={(e) => setMessage(e.target.value)}
+                />
+                <Button className="w-full btn-gradient" onClick={handleSendMessage}>
+                  Send Message
+                </Button>
               </div>
             </div>
             <div className="space-y-6">
