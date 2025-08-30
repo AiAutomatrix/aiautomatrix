@@ -12,9 +12,9 @@ export default function HeroSection() {
       className="relative overflow-hidden pt-20 pb-20 md:pt-32 md:pb-24 bg-cover bg-center"
       style={{ backgroundImage: "url('/sales.png')" }}
     >
-      <div className="absolute inset-0 bg-black/60 z-0"></div>
+      <div className="absolute inset-0 bg-black/60 z-10"></div>
       <ParticleWave />
-      <div className="relative z-10 container">
+      <div className="relative z-20 container">
         <div className="max-w-3xl mx-auto text-center">
             <h1 className="font-headline text-4xl md:text-6xl font-bold tracking-tighter mb-4 text-white">
               <span className="text-gradient">Stop Losing Leads. Start Automating Sales.</span>

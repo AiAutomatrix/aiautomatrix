@@ -20,7 +20,7 @@ const ParticleWave = () => {
 
     const resize = () => {
       w = canvas.width = window.innerWidth;
-      h = canvas.height = window.innerHeight;
+      h = canvas.height = canvas.parentElement?.offsetHeight || window.innerHeight;
       particles.length = 0; // Reset particles on resize
       init();
     };
@@ -110,7 +110,7 @@ const ParticleWave = () => {
     };
   }, []);
 
-  return <canvas ref={canvasRef} className="absolute inset-0 -z-10 opacity-50" />;
+  return <canvas ref={canvasRef} className="absolute inset-0 z-10 opacity-50" />;
 };
 
 export default ParticleWave;
