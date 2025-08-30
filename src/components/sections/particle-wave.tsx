@@ -21,7 +21,7 @@ const ParticleWave = () => {
 
     const resize = () => {
       w = canvas.width = window.innerWidth;
-      h = canvas.parentElement?.offsetHeight || window.innerHeight;
+      h = canvas.height = canvas.parentElement?.offsetHeight || window.innerHeight;
       particles.length = 0; // Reset particles on resize
       init();
     };
