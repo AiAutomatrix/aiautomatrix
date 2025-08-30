@@ -35,7 +35,7 @@ export default function AiPoweredWebsiteBuildingPage() {
         title={<>AI-Powered <span className="text-gradient">Website Building</span></>}
         subtitle="We create next-generation websites that use artificial intelligence to deliver dynamic, personalized, and highly optimized user experiences from the ground up."
         features={features}
-        imageUrl="https://placehold.co/600x400.png"
+        imageUrl="/website.png"
         imageHint="website design user"
       />
       <Footer />
