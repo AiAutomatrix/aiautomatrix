@@ -40,7 +40,7 @@ export default function ContactSection() {
               </div>
               <div className="flex items-center space-x-4">
                 <Mail className="h-6 w-6 text-primary" />
-                <p className="text-muted-foreground">info@aiautomatrix.com</p>
+                <p className="text-muted-foreground">aiautomatrix@outlook.com</p>
               </div>
               <div className="w-full h-64 rounded-lg overflow-hidden mt-6">
                  <iframe
