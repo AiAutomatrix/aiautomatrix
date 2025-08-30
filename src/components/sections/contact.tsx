@@ -3,6 +3,7 @@ import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Button } from '@/components/ui/button';
 import { Phone, Mail, MapPin } from 'lucide-react';
+import Link from 'next/link';
 
 export default function ContactSection() {
   return (
@@ -20,13 +21,15 @@ export default function ContactSection() {
           <div className="grid md:grid-cols-2 gap-12">
             <div>
               <h3 className="font-headline text-2xl font-bold mb-6">Send us a message</h3>
-              <form className="space-y-4">
+              <div className="space-y-4">
                 <Input type="text" placeholder="Your Name" className="bg-background/50" />
                 <Input type="email" placeholder="Your Email" className="bg-background/50" />
                 <Input type="url" placeholder="Your Website (optional)" className="bg-background/50" />
                 <Textarea placeholder="Your Message" className="bg-background/50 min-h-[150px]" />
-                <Button type="submit" className="w-full btn-gradient">Send Message</Button>
-              </form>
+                <Link href="mailto:aiautomatrix@outlook.com" className="w-full">
+                  <Button className="w-full btn-gradient">Send Message</Button>
+                </Link>
+              </div>
             </div>
             <div className="space-y-6">
               <h3 className="font-headline text-2xl font-bold mb-6">Contact Information</h3>
