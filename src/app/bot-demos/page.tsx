@@ -25,12 +25,6 @@ const demoAgents = [
     link: '/bot-demos/real-estate-agent',
   },
   {
-    icon: <Car className="h-10 w-10 text-primary" />,
-    title: 'Vehicle Evaluation Agent',
-    description: 'Researches vehicle reviews, common problems, and provides price estimates.',
-    link: '/bot-demos/vehicle-evaluation-agent',
-  },
-  {
     icon: <ShoppingCart className="h-10 w-10 text-primary" />,
     title: 'E-commerce Agent',
     description: 'Assists with product discovery, order tracking, and purchases.',
@@ -65,6 +59,12 @@ const demoAgents = [
     title: 'Mental Health Tracker',
     description: 'A supportive companion for logging moods and providing resources.',
     link: '/bot-demos/mental-health-tracker',
+  },
+  {
+    icon: <Car className="h-10 w-10 text-primary" />,
+    title: 'Vehicle Evaluation Agent',
+    description: 'Researches vehicle reviews, common problems, and provides price estimates.',
+    link: '/bot-demos/vehicle-evaluation-agent',
   },
 ];
 
