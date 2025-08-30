@@ -19,10 +19,10 @@ const demoAgents = [
     link: '/bot-demos/customer-service',
   },
   {
-    icon: <HeartHandshake className="h-10 w-10 text-accent" />,
-    title: 'Mental Health Tracker',
-    description: 'A supportive companion for logging moods and providing resources.',
-    link: '/bot-demos/mental-health-tracker',
+    icon: <Home className="h-10 w-10 text-primary" />,
+    title: 'Real Estate Agent',
+    description: 'Finds property listings, schedules viewings, and answers real estate questions.',
+    link: '/bot-demos/real-estate-agent',
   },
   {
     icon: <ShoppingCart className="h-10 w-10 text-primary" />,
@@ -37,16 +37,16 @@ const demoAgents = [
     link: '/bot-demos/lead-capture-agent',
   },
   {
-    icon: <Home className="h-10 w-10 text-primary" />,
-    title: 'Real Estate Agent',
-    description: 'Finds property listings, schedules viewings, and answers real estate questions.',
-    link: '/bot-demos/real-estate-agent',
-  },
-  {
     icon: <Calculator className="h-10 w-10 text-accent" />,
     title: 'Price Estimate Tool',
     description: 'Provides instant, dynamic quotes for services based on user input.',
     link: '/bot-demos/price-estimate-tool',
+  },
+  {
+    icon: <AreaChart className="h-10 w-10 text-accent" />,
+    title: 'Crypto Tracker',
+    description: 'Fetches and displays real-time cryptocurrency prices and data.',
+    link: '/bot-demos/crypto-tracker',
   },
   {
     icon: <Pencil className="h-10 w-10 text-primary" />,
@@ -55,10 +55,10 @@ const demoAgents = [
     link: '/bot-demos/blog-creator-agent',
   },
   {
-    icon: <AreaChart className="h-10 w-10 text-accent" />,
-    title: 'Crypto Tracker',
-    description: 'Fetches and displays real-time cryptocurrency prices and data.',
-    link: '/bot-demos/crypto-tracker',
+    icon: <HeartHandshake className="h-10 w-10 text-accent" />,
+    title: 'Mental Health Tracker',
+    description: 'A supportive companion for logging moods and providing resources.',
+    link: '/bot-demos/mental-health-tracker',
   },
 ];
 
