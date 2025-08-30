@@ -8,6 +8,26 @@ export const metadata: Metadata = {
   description: 'Live demo of a Botpress tool that provides instant, dynamic quotes for services based on user input.',
 };
 
+const chatScripts = `
+  <html>
+    <head>
+      <style>
+        html, body {
+          height: 100%;
+          width: 100%;
+          margin: 0;
+          padding: 0;
+          overflow: hidden;
+        }
+      </style>
+    </head>
+    <body>
+      <script src="https://cdn.botpress.cloud/webchat/v3.2/inject.js"><\/script>
+      <script src="https://files.bpcontent.cloud/2025/07/20/15/20250720153535-VDNUSBCH.js" defer><\/script>
+    </body>
+  </html>
+`;
+
 export default function PriceEstimateToolPage() {
   return (
     <>
@@ -17,7 +37,7 @@ export default function PriceEstimateToolPage() {
         subtitle="Provides instant, dynamic quotes for services based on user input."
         description="Empower your customers with self-service price estimation. This agent guides users through a series of questions to understand their needs and provides an instant, customized quote for your services, reducing friction and accelerating the sales cycle."
         examplePrompts={["I need a quote for a new website.", "How much does SEO cost?"]}
-        iframeSrc="https://mediafiles.botpress.cloud/f00a273b-a63b-419b-a113-a447c234b3e8/webchat/bot.html"
+        iframeSrcDoc={chatScripts}
       />
       <Footer />
     </>
