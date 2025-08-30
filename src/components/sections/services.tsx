@@ -1,32 +1,8 @@
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { PenTool, Code, Search, Megaphone, BrainCircuit, Bot } from 'lucide-react';
+import { BrainCircuit, Bot } from 'lucide-react';
 import Link from 'next/link';
 
 const services = [
-  {
-    icon: <PenTool className="h-10 w-10 text-primary" />,
-    title: 'Web Design',
-    description: 'Stunning, custom designs that capture your brand and engage your audience from the first click.',
-    link: '/services/web-design'
-  },
-  {
-    icon: <Code className="h-10 w-10 text-accent" />,
-    title: 'Web Development',
-    description: 'Fast, responsive, and scalable websites built with the latest technologies for optimal performance.',
-    link: '/services/web-development'
-  },
-  {
-    icon: <Search className="h-10 w-10 text-primary" />,
-    title: 'SEO Optimization',
-    description: 'Boost your visibility on search engines and attract more organic traffic with our expert SEO strategies.',
-    link: '/services/seo-optimization'
-  },
-  {
-    icon: <Megaphone className="h-10 w-10 text-accent" />,
-    title: 'Digital Marketing',
-    description: 'Comprehensive marketing campaigns to grow your online presence and connect with your customers.',
-    link: '/services/digital-marketing'
-  },
   {
     icon: <Bot className="h-10 w-10 text-primary" />,
     title: 'Custom Botpress Agents',
@@ -53,7 +29,7 @@ export default function ServicesSection() {
             We build specialized solutions that drive efficiency, engagement, and growth for your business.
           </p>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8 max-w-4xl mx-auto">
           {services.map((service, index) => (
             <Link href={service.link} key={index} className="flex">
                 <Card className="card-glass text-center p-6 transform transition-transform duration-300 hover:-translate-y-2 flex flex-col w-full">
