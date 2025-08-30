@@ -12,10 +12,10 @@ export default function HeroSection() {
       <ParticleWave />
       <div className="relative z-10 container text-center flex flex-col items-center">
         <h1 className="font-headline text-4xl md:text-6xl lg:text-7xl font-bold tracking-tighter mb-4">
-          <span className="text-gradient">Ai Automatrix</span>
+          <span className="text-gradient">Turn Your Website Into a 24/7 Sales & Support Agent</span>
         </h1>
-        <p className="max-w-2xl mx-auto text-lg md:text-xl text-muted-foreground mb-8">
-          We build stunning, high-performance AI solutions that help businesses automate tasks and increase efficiency.
+        <p className="max-w-3xl mx-auto text-lg md:text-xl text-muted-foreground mb-8">
+          An AI agent that captures leads, answers questions, and books appointments for you. We scrape your website, build a custom AI agent, and put it live — no code, no hassle.
         </p>
         <div className="flex flex-wrap justify-center gap-4">
           <Link href="#services">
@@ -24,9 +24,9 @@ export default function HeroSection() {
               <ArrowRight className="ml-2 h-5 w-5" />
             </Button>
           </Link>
-          <Link href="#seo-tool">
+          <Link href="/bot-demos">
             <Button size="lg" variant="outline">
-              SEO Tool
+              See a Live Demo
             </Button>
           </Link>
         </div>
