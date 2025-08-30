@@ -9,7 +9,7 @@ import ParticleWave from '@/components/sections/particle-wave';
 export default function HeroSection() {
   
   return (
-    <section className="relative flex h-[calc(100vh-56px)] items-center justify-center overflow-hidden">
+    <section className="relative overflow-hidden pt-20 pb-20 md:pt-32 md:pb-24">
       <ParticleWave />
       <div className="relative z-10 container text-center flex flex-col items-center">
         <div className="max-w-4xl mx-auto mb-8">
