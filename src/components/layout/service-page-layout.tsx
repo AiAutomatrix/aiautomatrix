@@ -39,7 +39,7 @@ export default function ServicePageLayout({ title, subtitle, features, imageUrl,
                 <img
                     src={imageUrl}
                     alt={imageHint}
-                    className="w-full h-full object-contain"
+                    className="w-full h-full object-cover"
                     data-ai-hint={imageHint}
                 />
               </div>
