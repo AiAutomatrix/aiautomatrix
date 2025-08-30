@@ -3,7 +3,7 @@ import { Button } from '@/components/ui/button';
 import Link from 'next/link';
 import Header from '@/components/layout/header';
 import Footer from '@/components/layout/footer';
-import { ArrowRight, Bot, HeartHandshake, ShoppingCart, FileText, Calculator, Pencil, AreaChart } from 'lucide-react';
+import { ArrowRight, Bot, HeartHandshake, ShoppingCart, FileText, Calculator, Pencil, AreaChart, Home } from 'lucide-react';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
@@ -37,19 +37,25 @@ const demoAgents = [
     link: '/bot-demos/lead-capture-agent',
   },
   {
-    icon: <Calculator className="h-10 w-10 text-primary" />,
+    icon: <Home className="h-10 w-10 text-primary" />,
+    title: 'Real Estate Agent',
+    description: 'Finds property listings, schedules viewings, and answers real estate questions.',
+    link: '/bot-demos/real-estate-agent',
+  },
+  {
+    icon: <Calculator className="h-10 w-10 text-accent" />,
     title: 'Price Estimate Tool',
     description: 'Provides instant, dynamic quotes for services based on user input.',
     link: '/bot-demos/price-estimate-tool',
   },
   {
-    icon: <Pencil className="h-10 w-10 text-accent" />,
+    icon: <Pencil className="h-10 w-10 text-primary" />,
     title: 'Blog Creator Agent',
     description: 'Helps brainstorm, outline, and generate drafts for blog content.',
     link: '/bot-demos/blog-creator-agent',
   },
   {
-    icon: <AreaChart className="h-10 w-10 text-primary" />,
+    icon: <AreaChart className="h-10 w-10 text-accent" />,
     title: 'Crypto Tracker',
     description: 'Fetches and displays real-time cryptocurrency prices and data.',
     link: '/bot-demos/crypto-tracker',
@@ -72,7 +78,7 @@ export default function BotDemosHubPage() {
               </p>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
               {demoAgents.map((agent) => (
                 <Card key={agent.title} className="card-glass text-center p-6 transform transition-transform duration-300 hover:-translate-y-2 flex flex-col w-full">
                   <CardHeader className="flex-shrink-0 flex justify-center items-center">
