@@ -13,9 +13,9 @@ import { Label } from '@/components/ui/label';
 
 const pricingData = {
   packages: [
-    { id: 'basic', name: 'Basic Website Agent', setup: 1200, monthly: 200, description: 'FAQ & customer service bot' },
-    { id: 'standard', name: 'Standard Workflow Agent', setup: 2500, monthly: 400, description: 'Multi-page workflows & CRM integration' },
-    { id: 'advanced', name: 'Advanced API-Integrated Agent', setup: 5000, monthly: 750, description: 'Multi-agent system & API integrations' },
+    { id: 'basic', name: 'Basic Website Agent', setup: 1200, monthly: 200, description: 'FAQ & customer service bot, website scraping' },
+    { id: 'standard', name: 'Standard Workflow Agent', setup: 2500, monthly: 400, description: 'Multi-page workflows, CRM/email integration, analytics' },
+    { id: 'advanced', name: 'Advanced API-Integrated Agent', setup: 5000, monthly: 750, description: 'Multi-agent system, API integrations, dynamic personalization' },
   ],
   addOns: [
     { id: 'workflow', name: 'Additional Workflow Tool', setup: 0, monthly: 300 },
@@ -23,6 +23,7 @@ const pricingData = {
     { id: 'multi-agent', name: 'Multi-Agent Expansion', setup: 1000, monthly: 0 },
     { id: 'nlp', name: 'Custom NLP Training', setup: 750, monthly: 0 },
     { id: 'optimization', name: 'Content Generation & Chat Optimization', setup: 0, monthly: 250 },
+    { id: 'analytics', name: 'Advanced Analytics & Reporting', setup: 0, monthly: 300 },
   ],
 };
 
@@ -76,7 +77,7 @@ export default function ContactSection() {
     if (activeAddOns.length > 0) {
       quoteDetails += `\nSelected Add-Ons:\n`;
       activeAddOns.forEach(a => {
-        quoteDetails += `- ${a.name} ($${a.setup} setup, $${a.monthly}/month)\n`;
+        quoteDetails += `- ${a.name} (+$${a.setup} setup, +$${a.monthly}/month)\n`;
       });
     }
 
@@ -153,7 +154,7 @@ export default function ContactSection() {
                   <AccordionContent className="pt-4">
                     <div className="space-y-6">
                       <div>
-                        <h4 className="font-semibold mb-2">Core Service Package</h4>
+                        <h4 className="font-semibold mb-2">Core Agent Packages</h4>
                         <RadioGroup value={selectedPackage} onValueChange={setSelectedPackage}>
                           {pricingData.packages.map(pkg => (
                             <div key={pkg.id} className="flex items-center space-x-2">
@@ -216,3 +217,5 @@ export default function ContactSection() {
     </section>
   );
 }
+
+    
