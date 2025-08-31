@@ -17,7 +17,7 @@ export default function HeroSection() {
       <div className="relative z-20 container mx-auto px-4">
         <div className="max-w-3xl mx-auto text-center">
             <h1 className="font-headline text-4xl md:text-6xl font-bold tracking-tighter mb-4 text-white">
-              <span className="text-gradient">Stop Losing Leads. Start Automating Sales.</span>
+              <span className="text-gradient">Stop Losing Leads.<br />Start Automating Sales.</span>
             </h1>
             <p className="max-w-xl mx-auto text-lg md:text-xl text-slate-200 mb-8">
               We scrape your website, build a custom AI agent, and put it live — no code, no hassle. Your site becomes a 24/7 sales and support hero.
