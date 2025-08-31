@@ -90,10 +90,6 @@ export default function Header() {
                         <Sparkles className="h-6 w-6 text-primary" />
                         <span className="font-bold font-headline text-lg">Ai Automatrix</span>
                       </Link>
-                      <Button variant="ghost" onClick={() => setIsMenuOpen(false)}>
-                        <X className="h-6 w-6" />
-                        <span className="sr-only">Close menu</span>
-                      </Button>
                     </div>
                     <nav className="flex flex-col p-4 space-y-4 overflow-y-auto">
                       <p className="text-muted-foreground text-sm font-semibold">SERVICES</p>
