@@ -1,10 +1,11 @@
 import Header from "@/components/layout/header";
 import Footer from "@/components/layout/footer";
 import { Metadata } from 'next';
-import { ArrowRight, CheckCircle } from "lucide-react";
+import { ArrowRight, CheckCircle, Bot, ShoppingCart, HeartHandshake, FileText } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import React from "react";
+import { Card, CardHeader, CardContent } from "@/components/ui/card";
 
 export const metadata: Metadata = {
   title: 'Custom Botpress Agent Development | Ai Automatrix',
@@ -28,6 +29,29 @@ const features = [
     title: 'Secure & Scalable Solutions',
     description: 'Built with security and scalability in mind, our Botpress solutions can handle growing demands while protecting user data.',
   },
+];
+
+const useCases = [
+    {
+        icon: <FileText className="h-8 w-8 text-primary" />,
+        title: "Lead Generation",
+        description: "Engage website visitors proactively, qualify leads with targeted questions, and schedule appointments automatically."
+    },
+    {
+        icon: <Bot className="h-8 w-8 text-primary" />,
+        title: "Customer Support",
+        description: "Provide 24/7 instant answers to frequently asked questions, track support tickets, and escalate complex issues to human agents."
+    },
+    {
+        icon: <ShoppingCart className="h-8 w-8 text-primary" />,
+        title: "E-commerce Assistant",
+        description: "Help customers find products, track orders, process returns, and offer personalized recommendations."
+    },
+    {
+        icon: <HeartHandshake className="h-8 w-8 text-primary" />,
+        title: "HR & Internal Support",
+        description: "Automate employee onboarding, answer policy questions, and manage internal IT support requests."
+    }
 ];
 
 const title = <>Custom <span className="text-gradient">Botpress Agents</span></>;
@@ -81,10 +105,31 @@ export default function CustomBotpressAgentPage() {
                 </div>
               </div>
 
+              <div className="mt-20">
+                <div className="max-w-4xl mx-auto">
+                    <h2 className="font-headline text-3xl md:text-4xl font-bold mb-12 text-center">
+                        Common <span className="text-gradient">Use Cases</span>
+                    </h2>
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                        {useCases.map((useCase, index) => (
+                            <Card key={index} className="card-glass p-6 flex items-start gap-4">
+                                <div className="flex-shrink-0">
+                                    {useCase.icon}
+                                </div>
+                                <div>
+                                    <h3 className="font-headline text-xl font-bold mb-2">{useCase.title}</h3>
+                                    <p className="text-muted-foreground">{useCase.description}</p>
+                                </div>
+                            </Card>
+                        ))}
+                    </div>
+                </div>
+              </div>
+
               <div className="text-center mt-20 flex justify-center gap-4">
                   <Link href="/#contact">
                       <Button size="lg" className="btn-gradient">
-                          Get a Custom Quote
+                          Get this for my website
                           <ArrowRight className="ml-2 h-5 w-5" />
                       </Button>
                   </Link>
