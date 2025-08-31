@@ -7,6 +7,7 @@ import Link from "next/link";
 import { ArrowRight, CheckCircle, Bot, ScanSearch, Rocket } from "lucide-react";
 import { Card, CardHeader, CardContent, CardTitle, CardDescription } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import ParticleWave from "@/components/sections/particle-wave";
 
 export const metadata: Metadata = {
   title: 'Pricing & Packages | Ai Automatrix',
@@ -16,7 +17,7 @@ export const metadata: Metadata = {
 const customerServiceScripts = `
   <html>
     <head>
-      <script src="https://cdn.botpress.cloud/webchat/v3.2/inject.js"></script>
+      <script src="https://cdn.botpress.cloud/webchat/v3.2/inject.js"><\/script>
       <style>
         html, body, #webchat, #webchat .bpWebchat {
           position: unset !important;
@@ -25,7 +26,8 @@ const customerServiceScripts = `
           max-height: 100% !important;
           max-width: 100% !important;
           margin: 0 !important;
-          padding: 0 !important;
+          padding: 0 !importan
+t;
           overflow: hidden !important;
         }
         #webchat .bp-widget-widget {
@@ -34,7 +36,7 @@ const customerServiceScripts = `
       </style>
     </head>
     <body>
-      <script src="https://files.bpcontent.cloud/2025/08/26/22/20250826221413-HL4C5ZIZ.js" defer></script>
+      <script src="https://files.bpcontent.cloud/2025/08/26/22/20250826221413-HL4C5ZIZ.js" defer><\/script>
       <script>
         window.addEventListener('load', function() {
             if(window.botpress){
@@ -51,7 +53,7 @@ const customerServiceScripts = `
 const ecommerceScripts = `
   <html>
     <head>
-      <script src="https://cdn.botpress.cloud/webchat/v3.2/inject.js"></script>
+      <script src="https://cdn.botpress.cloud/webchat/v3.2/inject.js"><\/script>
       <style>
         html, body, #webchat, #webchat .bpWebchat {
           position: unset !important;
@@ -156,21 +158,26 @@ export default function PricingPage() {
             <Header />
             <main className="flex-1">
                 {/* Hero Section */}
-                <section className="py-20 md:py-32 text-center bg-secondary/20">
-                    <div className="container mx-auto px-4">
-                        <h1 className="font-headline text-4xl md:text-6xl font-bold tracking-tighter mb-4">
-                            Powerful AI Agents for <span className="text-gradient">Any Budget</span>
-                        </h1>
-                        <p className="max-w-3xl mx-auto text-lg md:text-xl text-muted-foreground mb-8">
-                            From simple FAQ bots to complex, multi-system automations, we have a solution that fits your needs.
-                        </p>
-                         <Link href="/#contact">
-                            <Button size="lg" className="btn-gradient">
-                                Get a Custom Quote
-                                <ArrowRight className="ml-2 h-5 w-5" />
-                            </Button>
-                        </Link>
-                    </div>
+                <section
+                  className="relative overflow-hidden pt-20 pb-20 md:pt-32 md:pb-24 bg-cover bg-center"
+                  style={{ backgroundImage: "url('/pricehero.png')" }}
+                >
+                  <div className="absolute inset-0 bg-black/60 z-10"></div>
+                  <ParticleWave />
+                  <div className="relative z-20 container mx-auto px-4 text-center">
+                    <h1 className="font-headline text-4xl md:text-6xl font-bold tracking-tighter mb-4 text-white">
+                        Powerful AI Agents for <span className="text-gradient">Any Budget</span>
+                    </h1>
+                    <p className="max-w-3xl mx-auto text-lg md:text-xl text-slate-200 mb-8">
+                        From simple FAQ bots to complex, multi-system automations, we have a solution that fits your needs.
+                    </p>
+                     <Link href="/#contact">
+                        <Button size="lg" className="btn-gradient">
+                            Get a Custom Quote
+                            <ArrowRight className="ml-2 h-5 w-5" />
+                        </Button>
+                    </Link>
+                  </div>
                 </section>
 
                 {/* How It Works Section */}
