@@ -13,9 +13,9 @@ import { Label } from '@/components/ui/label';
 
 const pricingData = {
   packages: [
-    { id: 'basic', name: 'Basic Website Agent', setup: 1200, monthly: 200, description: 'FAQ & customer service bot, website scraping' },
-    { id: 'standard', name: 'Standard Workflow Agent', setup: 2500, monthly: 400, description: 'Multi-page workflows, CRM/email integration, analytics' },
-    { id: 'advanced', name: 'Advanced API-Integrated Agent', setup: 5000, monthly: 750, description: 'Multi-agent system, API integrations, dynamic personalization' },
+    { id: 'basic', name: 'Basic Website Agent', setup: 1200, monthly: 200, description: 'FAQ & customer service bot, website scraping, contact form handling.' },
+    { id: 'standard', name: 'Standard Workflow Agent', setup: 2500, monthly: 400, description: 'Multi-page workflows, CRM/email integration, analytics dashboard.' },
+    { id: 'advanced', name: 'Advanced API-Integrated Agent', setup: 5000, monthly: 750, description: 'Multi-agent system, API integrations, dynamic personalization.' },
   ],
   addOns: [
     { id: 'workflow', name: 'Additional Workflow Tool', setup: 0, monthly: 300 },
