@@ -21,9 +21,9 @@ const coreServiceLinks = [
 ];
 
 const aiServiceLinks = [
+  { href: '/services/custom-botpress-agent', label: 'Custom Botpress Agent' },
   { href: '/services/ai-powered-website-building', label: 'AI-Powered Websites' },
   { href: '/services/ai-backend-development', label: 'AI Backend Development' },
-  { href: '/services/custom-botpress-agent', label: 'Custom Botpress Agent' },
 ]
 
 const navLinks = [
@@ -36,6 +36,11 @@ const navLinks = [
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const activeAiServices = [
+    { href: '/services/custom-botpress-agent', label: 'Custom Botpress Agent' },
+    { href: '/services/ai-powered-website-building', label: 'AI-Powered Websites' },
+  ];
 
   return (
     <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
@@ -111,19 +116,8 @@ export default function Header() {
                       </Button>
                     </div>
                     <nav className="flex flex-col p-4 space-y-4 overflow-y-auto">
-                      <p className="text-muted-foreground text-sm font-semibold">AI SOLUTIONS</p>
-                      {aiServiceLinks.map((link) => (
-                        <Link
-                          key={link.href}
-                          href={link.href}
-                          className="text-lg font-medium transition-colors hover:text-primary"
-                          onClick={() => setIsMenuOpen(false)}
-                        >
-                          {link.label}
-                        </Link>
-                      ))}
-                      <p className="text-muted-foreground text-sm font-semibold pt-4">CORE SERVICES</p>
-                       {coreServiceLinks.map((link) => (
+                      <p className="text-muted-foreground text-sm font-semibold">SERVICES</p>
+                      {activeAiServices.map((link) => (
                         <Link
                           key={link.href}
                           href={link.href}
