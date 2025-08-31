@@ -1,108 +1,91 @@
-# Botpress Website Agent Development Pricing
+# Botpress AI Agent Development Pricing & Packages
 
-## Core Service Packages
+## Core Agent Packages
 
 ### 1. Basic Website Agent
-
-Price: $1,200 setup + $200/month retainer
-
-Includes:
-
-- AI-powered FAQ & customer service bot
-
+**Price:** $1,200 setup + $200/month retainer  
+**Includes:**
+- FAQ & customer service bot
 - Scraped business website integration
+- Contact form handling & basic automated responses
+- Monthly performance monitoring  
 
-- Contact form handling & basic responses
-
-- Monthly performance monitoring
-
-Best for: Small businesses looking to automate basic customer service.
+**Best for:** Small businesses wanting to automate basic customer interactions.
 
 ---
 
 ### 2. Standard Workflow Agent
+**Price:** $2,500 setup + $400/month retainer  
+**Includes:**
+- Multi-page workflow automation (lead capture, booking, support, surveys)
+- CRM and email integration
+- AI-driven suggestions & templated responses
+- Analytics dashboard to monitor bot performance  
 
-Price: $2,500 setup + $400/month retainer
-
-Includes:
-
-- Multi-page workflow automation (lead capture, booking, support)
-
-- Integration with email & CRM
-
-- AI-driven suggestions and response templates
-
-- Analytics dashboard for bot performance
-
-Best for: Businesses needing structured workflows and moderate automation.
+**Best for:** Businesses needing structured workflows and more advanced automation.
 
 ---
 
 ### 3. Advanced API-Integrated Agent
+**Price:** $5,000 setup + $750/month retainer  
+**Includes:**
+- Multi-agent system (sales, support, FAQ, booking)
+- Integration with 1–3 external APIs (CRM, payment, analytics)
+- Dynamic personalization (user-specific recommendations & messages)
+- Advanced analytics, reporting, and optimization
 
-Price: $5,000 setup + $750/month retainer
-
-Includes:
-
-- Full website agent with multiple workflow tools
-
-- Integration with 1–3 external APIs (payment, CRM, booking, etc.)
-
-- Multi-agent system for sales, support, FAQs
-
-- Dynamic personalization for users
-
-- Advanced analytics & reporting
-
-Best for: Businesses requiring full automation with external system integrations.
+**Best for:** Businesses requiring full automation with multiple workflows and API integrations.
 
 ---
 
-## Agent & Workflow Add-Ons
+## Types of AI Chatbots You Can Create
 
-- Additional Workflow Tool: $300 per tool/month
+- **FAQ/Customer Support Bot:** Handles common questions, support tickets, and basic troubleshooting.
+- **Lead Capture & Sales Bot:** Engages visitors, qualifies leads, and integrates with CRM.
+- **Booking & Scheduling Bot:** Handles appointments, reservations, and confirmations.
+- **E-Commerce Bot:** Provides product recommendations, cart recovery, and purchase assistance.
+- **Multi-Agent Bot:** Combines multiple specialized bots for different functions on the same platform.
+- **Survey & Feedback Bot:** Collects user feedback, ratings, and post-interaction surveys.
+- **Voice-Enabled Bot:** Integrates voice interaction for phone or web voice assistants.
 
-(Examples: booking, order management, lead scoring, survey collection)
+---
 
-- API Tool Integration: $500 setup + $150/month per API
+## Add-Ons & Workflow Tools
 
-(Connect to external services such as CRMs, payment gateways, analytics)
-
-- Multi-Agent Expansion: Starting at $1,000
-
-Add specialized agents (support, sales, FAQ, booking, e-commerce bots)
-
-- Custom NLP Training: $750 setup
-
-Enhance bot understanding with custom intents, entities, and domain-specific language
-
-- Content Generation & Chat Optimization: $250/month
-
-Auto-generate FAQ responses, knowledge base updates, and chat improvements
+- **Additional Workflow Tool:** $300 per workflow/month  
+  Examples: booking, order management, lead scoring, surveys.
+- **API Tool Integration:** $500 setup + $150/month per API  
+  Examples: CRM, payment gateways, analytics, ticketing systems.
+- **Multi-Agent Expansion:** Starting at $1,000  
+  Add specialized agents (support, sales, FAQ, booking, e-commerce bots).
+- **Custom NLP Training:** $750 setup  
+  Improve bot understanding with domain-specific intents, entities, and conversation flows.
+- **Content Generation & Chat Optimization:** $250/month  
+  Auto-update FAQs, knowledge bases, and optimize bot responses over time.
+- **Advanced Analytics & Reporting:** $300/month  
+  Track funnel performance, user interactions, and predictive insights.
 
 ---
 
 ## Suggested Funnel Strategy
 
-1. Lead Magnet: Free AI audit of their website to show potential automation impact
-
-2. Entry Offer: Basic Website Agent at a competitive base price
-
-3. Upsell Path: Introduce additional workflows, API integrations, and multi-agent expansion once value is proven
-
-4. Retention: Keep clients on monthly retainers for ongoing updates, performance monitoring, and new workflow integrations
+1. **Lead Magnet:** Offer a free AI audit of the website to demonstrate value.  
+2. **Entry Offer:** Sell Basic Website Agent at an accessible base price.  
+3. **Upsell Path:** Introduce additional workflow tools, API integrations, multi-agent expansions, and custom NLP once value is proven.  
+4. **Retention:** Maintain monthly retainers for ongoing optimization, new workflows, updates, and performance monitoring.
 
 ---
 
-## Summary Table (Optional for Clients)
+## Summary Table for Clients
 
-| Package | Setup Price | Monthly Retainer | Key Features |
-|---------|------------|----------------|--------------|
+| Agent Type | Setup Price | Monthly Retainer | Key Features |
+|------------|------------|----------------|--------------|
 | Basic Website Agent | $1,200 | $200 | FAQ & customer service bot, website scraping |
 | Standard Workflow Agent | $2,500 | $400 | Multi-page workflows, CRM/email integration, analytics |
-| Advanced API-Integrated Agent | $5,000 | $750 | Multi-agent system, external API integrations, dynamic personalization |
-| Additional Workflow Tool | $300/tool | $300/month | Add custom workflow functionality |
+| Advanced API-Integrated Agent | $5,000 | $750 | Multi-agent system, API integrations, dynamic personalization |
+| Additional Workflow Tool | $300/workflow | $300/month | Add custom workflow functionality |
 | API Tool Integration | $500/setup | $150/month per API | Connect to external systems |
-| Multi-Agent Expansion | $1,000+ | - | Specialized agents for sales/support/FAQ |
-| Custom NLP Training | $750 | - | Custom intents & entity recognition |
-| Content Generation & Chat Optimization | - | $250/month | AI-driven knowledge updates & improvements |
+| Multi-Agent Expansion | $1,000+ | - | Add specialized agents for sales/support/FAQ |
+| Custom NLP Training | $750 | - | Domain-specific intent/entity recognition |
+| Content Generation & Chat Optimization | - | $250/month | Auto-update knowledge & improve bot responses |
+| Advanced Analytics & Reporting | - | $300/month | Deep funnel analytics with predictive insights |
