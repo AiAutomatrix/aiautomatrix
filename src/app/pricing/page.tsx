@@ -628,110 +628,22 @@ export default function PricingPage() {
 
         {/* ROI + Testimonials + Live Demo */}
         <section className="py-20 md:py-24">
-          <div className="container mx-auto px-4 grid grid-cols-1 lg:grid-cols-2 gap-8">
-            <div className="card-glass p-6">
-              <h3 className="font-headline text-2xl font-bold mb-4">
-                Quick ROI Calculator
-              </h3>
-              <p className="text-muted-foreground mb-4">
-                Estimate monthly revenue unlocked by capturing and qualifying
-                more leads.
-              </p>
-
-              <div className="grid grid-cols-1 gap-3">
-                <label className="text-sm">Leads per day</label>
-                <input
-                  type="range"
-                  min={0}
-                  max={200}
-                  value={leadsPerDay}
-                  onChange={(e) => setLeadsPerDay(Number(e.target.value))}
-                />
-                <div className="flex justify-between text-xs text-muted-foreground">
-                  <span>0</span>
-                  <span>200</span>
-                </div>
-
-                <label className="text-sm">Close rate (%)</label>
-                <input
-                  type="range"
-                  min={0}
-                  max={100}
-                  value={closeRate}
-                  onChange={(e) => setCloseRate(Number(e.target.value))}
-                />
-                <div className="flex justify-between text-xs text-muted-foreground">
-                  <span>0%</span>
-                  <span>100%</span>
-                </div>
-
-                <label className="text-sm">Average order value ($)</label>
-                <input
-                  type="range"
-                  min={10}
-                  max={5000}
-                  value={avgOrder}
-                  onChange={(e) => setAvgOrder(Number(e.target.value))}
-                />
-                <div className="flex justify-between text-xs text-muted-foreground">
-                  <span>$10</span>
-                  <span>$5,000</span>
-                </div>
-
-                <div className="mt-4 p-4 rounded bg-secondary/10">
-                  <div className="text-sm">
-                    Estimated monthly revenue from captured leads
-                  </div>
-                  <div className="text-2xl font-bold mt-1">
-                    ${monthlyRevenueEstimate.toLocaleString()}
-                  </div>
-                  <div className="text-xs text-muted-foreground mt-1">
-                    (based on {leadsPerDay} leads/day • {closeRate}% close • $
-                    {avgOrder} AOV)
-                  </div>
-                </div>
-
-                <div className="mt-4 flex gap-2">
-                  <Link href="/#contact">
-                    <Button className="w-full btn-gradient">
-                      Book Setup Slot
-                    </Button>
-                  </Link>
-                  <Link href="/bot-demos">
-                    <Button className="w-full" variant="outline">
-                      Try Demos
-                    </Button>
-                  </Link>
-                </div>
+          <div className="container mx-auto px-4 grid grid-cols-1 lg:grid-cols-2 gap-12">
+            
+            <div className="flex flex-col gap-8">
+              <div>
+                <h3 className="font-headline text-2xl font-bold">What Clients Say</h3>
+                <p className="text-muted-foreground mt-2">Short, outcome-focused testimonials from early adopters.</p>
               </div>
-            </div>
-
-            <div>
-              <div className="mb-6">
-                <h3 className="font-headline text-2xl font-bold">
-                  What Clients Say
-                </h3>
-                <p className="text-muted-foreground">
-                  Short, outcome-focused testimonials from early adopters.
-                </p>
-              </div>
-
               <div className="space-y-4">
                 {testimonials.map((t, i) => (
                   <Card key={i} className="card-glass p-4">
                     <div className="flex items-start gap-4">
                       <div className="flex-1">
                         <div className="flex items-center justify-between">
-                          <div className="font-semibold">
-                            {t.name}{" "}
-                            <span className="text-muted-foreground text-sm">
-                              • {t.role}
-                            </span>
-                          </div>
+                          <div className="font-semibold">{t.name} <span className="text-muted-foreground text-sm">• {t.role}</span></div>
                           <div className="flex items-center gap-1 text-yellow-400">
-                            {Array.from({ length: t.stars }).map((_, idx) => (
-                              <Star key={idx} className="h-4 w-4" />
-                            ))}
+                            {Array.from({ length: t.stars }).map((_, idx) => (<Star key={idx} className="h-4 w-4" />))}
                           </div>
                         </div>
                         <p className="text-muted-foreground mt-2">“{t.quote}”</p>
@@ -740,44 +652,63 @@ export default function PricingPage() {
                   </Card>
                 ))}
               </div>
-
-              {/* Live Demos (tabs) */}
-              <div className="mt-8">
-                <h4 className="font-headline text-lg font-bold mb-3">
-                  Live Demos
-                </h4>
-                <Tabs defaultValue="customer-service" className="w-full max-w-sm">
+               {/* Live Demos (tabs) */}
+              <div>
+                <h4 className="font-headline text-lg font-bold mb-3">Live Demos</h4>
+                <Tabs defaultValue="customer-service" className="w-full">
                   <TabsList className="grid w-full grid-cols-2">
-                    <TabsTrigger value="customer-service">
-                      Customer Service Bot
-                    </TabsTrigger>
-                    <TabsTrigger value="ecommerce">
-                      E-commerce Assistant
-                    </TabsTrigger>
+                    <TabsTrigger value="customer-service">Customer Service Bot</TabsTrigger>
+                    <TabsTrigger value="ecommerce">E-commerce Assistant</TabsTrigger>
                   </TabsList>
                   <TabsContent value="customer-service">
                     <Card className="card-glass p-2 mt-4">
                       <div className="rounded-lg overflow-hidden border border-border/20">
-                        <iframe
-                          srcDoc={customerServiceScripts}
-                          className="w-full h-[420px] border-0 rounded-md"
-                          title="Customer Service Demo"
-                        ></iframe>
+                        <iframe srcDoc={customerServiceScripts} className="w-full h-[550px] border-0 rounded-md" title="Customer Service Demo"></iframe>
                       </div>
                     </Card>
                   </TabsContent>
                   <TabsContent value="ecommerce">
                     <Card className="card-glass p-2 mt-4">
                       <div className="rounded-lg overflow-hidden border border-border/20">
-                        <iframe
-                          srcDoc={ecommerceScripts}
-                          className="w-full h-[420px] border-0 rounded-md"
-                          title="E-commerce Demo"
-                        ></iframe>
+                        <iframe srcDoc={ecommerceScripts} className="w-full h-[550px] border-0 rounded-md" title="E-commerce Demo"></iframe>
                       </div>
                     </Card>
                   </TabsContent>
                 </Tabs>
+              </div>
+            </div>
+
+            <div className="card-glass p-6">
+              <h3 className="font-headline text-2xl font-bold mb-4">Quick ROI Calculator</h3>
+              <p className="text-muted-foreground mb-4">Estimate monthly revenue unlocked by capturing and qualifying more leads.</p>
+
+              <div className="grid grid-cols-1 gap-3">
+                <label className="text-sm">Leads per day</label>
+                <input type="range" min={0} max={200} value={leadsPerDay} onChange={(e) => setLeadsPerDay(Number(e.target.value))} />
+                <div className="flex justify-between text-xs text-muted-foreground"><span>0</span><span>200</span></div>
+
+                <label className="text-sm">Close rate (%)</label>
+                <input type="range" min={0} max={100} value={closeRate} onChange={(e) => setCloseRate(Number(e.target.value))} />
+                <div className="flex justify-between text-xs text-muted-foreground"><span>0%</span><span>100%</span></div>
+
+                <label className="text-sm">Average order value ($)</label>
+                <input type="range" min={10} max={5000} value={avgOrder} onChange={(e) => setAvgOrder(Number(e.target.value))} />
+                <div className="flex justify-between text-xs text-muted-foreground"><span>$10</span><span>$5,000</span></div>
+
+                <div className="mt-4 p-4 rounded bg-secondary/10">
+                  <div className="text-sm">Estimated monthly revenue from captured leads</div>
+                  <div className="text-2xl font-bold mt-1">${monthlyRevenueEstimate.toLocaleString()}</div>
+                  <div className="text-xs text-muted-foreground mt-1">(based on {leadsPerDay} leads/day • {closeRate}% close • ${avgOrder} AOV)</div>
+                </div>
+
+                <div className="mt-4 flex gap-2">
+                  <Link href="/#contact">
+                    <Button className="w-full btn-gradient">Book Setup Slot</Button>
+                  </Link>
+                  <Link href="/bot-demos">
+                    <Button className="w-full" variant="outline">Try Demos</Button>
+                  </Link>
+                </div>
               </div>
             </div>
           </div>
