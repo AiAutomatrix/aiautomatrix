@@ -105,7 +105,7 @@ export default function ContactSection() {
           </p>
         </div>
         <Card className="card-glass p-8 md:p-12">
-          <div className="grid md:grid-cols-2 gap-12">
+          <div className="flex flex-col-reverse md:grid md:grid-cols-2 gap-12">
             <div>
               <h3 className="font-headline text-2xl font-bold mb-6">Send us a message</h3>
               <div className="space-y-4">
@@ -217,5 +217,3 @@ export default function ContactSection() {
     </section>
   );
 }
-
-    
