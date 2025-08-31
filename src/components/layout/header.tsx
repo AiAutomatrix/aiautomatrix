@@ -1,3 +1,4 @@
+
 "use client";
 
 import { useState } from 'react';
@@ -19,6 +20,7 @@ const aiServiceLinks = [
 ];
 
 const navLinks = [
+  { href: '/pricing', label: 'Pricing'},
   { href: '/#about', label: 'About' },
   { href: '/bot-demos', label: 'Bot Demos' },
   { href: '/#testimonials', label: 'Reviews' },
