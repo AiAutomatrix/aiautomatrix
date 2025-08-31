@@ -414,16 +414,16 @@ export default function PricingPage() {
 
             {/* Quick stats */}
             <div className="mt-8 grid grid-cols-2 md:grid-cols-4 gap-4 max-w-3xl mx-auto">
-              <Card className="card-glass p-4">
+              <Card className="card-glass p-4 shadow-lg shadow-primary/20">
                 <Stat subtitle="Avg setup time">5–7 days</Stat>
               </Card>
-              <Card className="card-glass p-4">
+              <Card className="card-glass p-4 shadow-lg shadow-primary/20">
                 <Stat subtitle="Avg lead capture increase">+45%</Stat>
               </Card>
-              <Card className="card-glass p-4">
+              <Card className="card-glass p-4 shadow-lg shadow-primary/20">
                 <Stat subtitle="Support cost saved">Up to 70%</Stat>
               </Card>
-              <Card className="card-glass p-4">
+              <Card className="card-glass p-4 shadow-lg shadow-primary/20">
                 <Stat subtitle="Early-adopter seats left">{seatsLeft}</Stat>
               </Card>
             </div>
@@ -603,34 +603,51 @@ export default function PricingPage() {
             </div>
 
             {/* Add-ons CTA */}
-            <div className="text-center mt-10">
-              <p className="text-muted-foreground">
-                Add-ons help you scale features as you grow.
-              </p>
-              <div className="mt-4 flex items-center justify-center gap-3">
-                {addOns.slice(0, 3).map((a) => (
-                  <div
-                    key={a}
-                    className="px-3 py-2 rounded bg-muted/10 text-sm"
-                  >
+            <div className="text-center mt-16">
+              <h3 className="font-headline text-xl font-bold">Need more power?</h3>
+              <p className="text-muted-foreground mt-2">Add-ons help you scale features as you grow.</p>
+              <div className="mt-6 max-w-2xl mx-auto grid grid-cols-2 md:grid-cols-3 gap-4">
+                {addOns.slice(0, 6).map((a) => (
+                  <div key={a} className="p-3 rounded-lg bg-muted/20 border border-border/50 text-center text-sm">
                     {a}
                   </div>
                 ))}
-                <Link href="/#contact">
-                  <Button variant="ghost" className="ml-2">
-                    Request full add-on list
-                  </Button>
-                </Link>
               </div>
+               <Link href="/#contact" className="inline-block mt-6">
+                  <Button variant="ghost">Request full add-on list <ArrowRight className="ml-2 h-4 w-4" /></Button>
+                </Link>
             </div>
           </div>
         </section>
 
         {/* ROI + Testimonials + Live Demo */}
         <section className="py-20 md:py-24">
-          <div className="container mx-auto px-4 grid grid-cols-1 lg:grid-cols-2 gap-12">
-            
+          <div className="container mx-auto px-4 grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
             <div className="flex flex-col gap-8">
+              <div className="card-glass p-6">
+                <h3 className="font-headline text-2xl font-bold mb-4">Quick ROI Calculator</h3>
+                <p className="text-muted-foreground mb-4">Estimate monthly revenue unlocked by capturing and qualifying more leads.</p>
+
+                <div className="grid grid-cols-1 gap-3">
+                  <label className="text-sm">Leads per day</label>
+                  <input type="range" min={0} max={200} value={leadsPerDay} onChange={(e) => setLeadsPerDay(Number(e.target.value))} />
+                  <div className="flex justify-between text-xs text-muted-foreground"><span>0</span><span>200</span></div>
+
+                  <label className="text-sm">Close rate (%)</label>
+                  <input type="range" min={0} max={100} value={closeRate} onChange={(e) => setCloseRate(Number(e.target.value))} />
+                  <div className="flex justify-between text-xs text-muted-foreground"><span>0%</span><span>100%</span></div>
+
+                  <label className="text-sm">Average order value ($)</label>
+                  <input type="range" min={10} max={5000} value={avgOrder} onChange={(e) => setAvgOrder(Number(e.target.value))} />
+                  <div className="flex justify-between text-xs text-muted-foreground"><span>$10</span><span>$5,000</span></div>
+
+                  <div className="mt-4 p-4 rounded bg-secondary/10">
+                    <div className="text-sm">Estimated monthly revenue from captured leads</div>
+                    <div className="text-2xl font-bold mt-1">${monthlyRevenueEstimate.toLocaleString()}</div>
+                    <div className="text-xs text-muted-foreground mt-1">(based on {leadsPerDay} leads/day • {closeRate}% close • ${avgOrder} AOV)</div>
+                  </div>
+                </div>
+              </div>
               <div>
                 <h3 className="font-headline text-2xl font-bold">What Clients Say</h3>
                 <p className="text-muted-foreground mt-2">Short, outcome-focused testimonials from early adopters.</p>
@@ -652,64 +669,30 @@ export default function PricingPage() {
                   </Card>
                 ))}
               </div>
-               {/* Live Demos (tabs) */}
-              <div>
-                <h4 className="font-headline text-lg font-bold mb-3">Live Demos</h4>
-                <Tabs defaultValue="customer-service" className="w-full">
-                  <TabsList className="grid w-full grid-cols-2">
-                    <TabsTrigger value="customer-service">Customer Service Bot</TabsTrigger>
-                    <TabsTrigger value="ecommerce">E-commerce Assistant</TabsTrigger>
-                  </TabsList>
-                  <TabsContent value="customer-service">
-                    <Card className="card-glass p-2 mt-4">
-                      <div className="rounded-lg overflow-hidden border border-border/20">
-                        <iframe srcDoc={customerServiceScripts} className="w-full h-[550px] border-0 rounded-md" title="Customer Service Demo"></iframe>
-                      </div>
-                    </Card>
-                  </TabsContent>
-                  <TabsContent value="ecommerce">
-                    <Card className="card-glass p-2 mt-4">
-                      <div className="rounded-lg overflow-hidden border border-border/20">
-                        <iframe srcDoc={ecommerceScripts} className="w-full h-[550px] border-0 rounded-md" title="E-commerce Demo"></iframe>
-                      </div>
-                    </Card>
-                  </TabsContent>
-                </Tabs>
-              </div>
             </div>
 
-            <div className="card-glass p-6">
-              <h3 className="font-headline text-2xl font-bold mb-4">Quick ROI Calculator</h3>
-              <p className="text-muted-foreground mb-4">Estimate monthly revenue unlocked by capturing and qualifying more leads.</p>
-
-              <div className="grid grid-cols-1 gap-3">
-                <label className="text-sm">Leads per day</label>
-                <input type="range" min={0} max={200} value={leadsPerDay} onChange={(e) => setLeadsPerDay(Number(e.target.value))} />
-                <div className="flex justify-between text-xs text-muted-foreground"><span>0</span><span>200</span></div>
-
-                <label className="text-sm">Close rate (%)</label>
-                <input type="range" min={0} max={100} value={closeRate} onChange={(e) => setCloseRate(Number(e.target.value))} />
-                <div className="flex justify-between text-xs text-muted-foreground"><span>0%</span><span>100%</span></div>
-
-                <label className="text-sm">Average order value ($)</label>
-                <input type="range" min={10} max={5000} value={avgOrder} onChange={(e) => setAvgOrder(Number(e.target.value))} />
-                <div className="flex justify-between text-xs text-muted-foreground"><span>$10</span><span>$5,000</span></div>
-
-                <div className="mt-4 p-4 rounded bg-secondary/10">
-                  <div className="text-sm">Estimated monthly revenue from captured leads</div>
-                  <div className="text-2xl font-bold mt-1">${monthlyRevenueEstimate.toLocaleString()}</div>
-                  <div className="text-xs text-muted-foreground mt-1">(based on {leadsPerDay} leads/day • {closeRate}% close • ${avgOrder} AOV)</div>
-                </div>
-
-                <div className="mt-4 flex gap-2">
-                  <Link href="/#contact">
-                    <Button className="w-full btn-gradient">Book Setup Slot</Button>
-                  </Link>
-                  <Link href="/bot-demos">
-                    <Button className="w-full" variant="outline">Try Demos</Button>
-                  </Link>
-                </div>
-              </div>
+            <div className="sticky top-24">
+              <h4 className="font-headline text-lg font-bold mb-3 text-center">Live Demos</h4>
+              <Tabs defaultValue="customer-service" className="w-full">
+                <TabsList className="grid w-full grid-cols-2">
+                  <TabsTrigger value="customer-service">Customer Service Bot</TabsTrigger>
+                  <TabsTrigger value="ecommerce">E-commerce Assistant</TabsTrigger>
+                </TabsList>
+                <TabsContent value="customer-service">
+                  <Card className="card-glass p-2 mt-4">
+                    <div className="rounded-lg overflow-hidden border border-border/20">
+                      <iframe srcDoc={customerServiceScripts} className="w-full h-[650px] border-0 rounded-md" title="Customer Service Demo"></iframe>
+                    </div>
+                  </Card>
+                </TabsContent>
+                <TabsContent value="ecommerce">
+                  <Card className="card-glass p-2 mt-4">
+                    <div className="rounded-lg overflow-hidden border border-border/20">
+                      <iframe srcDoc={ecommerceScripts} className="w-full h-[650px] border-0 rounded-md" title="E-commerce Demo"></iframe>
+                    </div>
+                  </Card>
+                </TabsContent>
+              </Tabs>
             </div>
           </div>
         </section>
