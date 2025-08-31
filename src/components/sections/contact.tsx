@@ -1,12 +1,30 @@
 "use client";
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Card } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Button } from '@/components/ui/button';
-import { Phone, Mail, MapPin } from 'lucide-react';
-import Link from 'next/link';
+import { Phone, Mail, MapPin, Calculator, ChevronsUpDown } from 'lucide-react';
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
+import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
+import { Checkbox } from '@/components/ui/checkbox';
+import { Label } from '@/components/ui/label';
+
+const pricingData = {
+  packages: [
+    { id: 'basic', name: 'Basic Website Agent', setup: 1200, monthly: 200, description: 'FAQ & customer service bot' },
+    { id: 'standard', name: 'Standard Workflow Agent', setup: 2500, monthly: 400, description: 'Multi-page workflows & CRM integration' },
+    { id: 'advanced', name: 'Advanced API-Integrated Agent', setup: 5000, monthly: 750, description: 'Multi-agent system & API integrations' },
+  ],
+  addOns: [
+    { id: 'workflow', name: 'Additional Workflow Tool', setup: 0, monthly: 300 },
+    { id: 'api', name: 'API Tool Integration', setup: 500, monthly: 150 },
+    { id: 'multi-agent', name: 'Multi-Agent Expansion', setup: 1000, monthly: 0 },
+    { id: 'nlp', name: 'Custom NLP Training', setup: 750, monthly: 0 },
+    { id: 'optimization', name: 'Content Generation & Chat Optimization', setup: 0, monthly: 250 },
+  ],
+};
 
 export default function ContactSection() {
   const [name, setName] = useState('');
@@ -14,9 +32,63 @@ export default function ContactSection() {
   const [website, setWebsite] = useState('');
   const [message, setMessage] = useState('');
 
+  const [selectedPackage, setSelectedPackage] = useState<string>('basic');
+  const [selectedAddOns, setSelectedAddOns] = useState<Record<string, boolean>>({});
+  const [totalSetup, setTotalSetup] = useState(0);
+  const [totalMonthly, setTotalMonthly] = useState(0);
+
+  useEffect(() => {
+    let setupCost = 0;
+    let monthlyCost = 0;
+
+    const pkg = pricingData.packages.find(p => p.id === selectedPackage);
+    if (pkg) {
+      setupCost += pkg.setup;
+      monthlyCost += pkg.monthly;
+    }
+
+    for (const addOnId in selectedAddOns) {
+      if (selectedAddOns[addOnId]) {
+        const addOn = pricingData.addOns.find(a => a.id === addOnId);
+        if (addOn) {
+          setupCost += addOn.setup;
+          monthlyCost += addOn.monthly;
+        }
+      }
+    }
+
+    setTotalSetup(setupCost);
+    setTotalMonthly(monthlyCost);
+  }, [selectedPackage, selectedAddOns]);
+
+  const handleAddOnToggle = (id: string, checked: boolean) => {
+    setSelectedAddOns(prev => ({ ...prev, [id]: checked }));
+  };
+
   const handleSendMessage = () => {
-    const subject = `New message from ${name}`;
-    const body = `Name: ${name}\nEmail: ${email}\nWebsite: ${website}\n\nMessage:\n${message}`;
+    let quoteDetails = '';
+    const pkg = pricingData.packages.find(p => p.id === selectedPackage);
+    if (pkg) {
+      quoteDetails += `Selected Package:\n- ${pkg.name} ($${pkg.setup} setup, $${pkg.monthly}/month)\n`;
+    }
+
+    const activeAddOns = pricingData.addOns.filter(a => selectedAddOns[a.id]);
+    if (activeAddOns.length > 0) {
+      quoteDetails += `\nSelected Add-Ons:\n`;
+      activeAddOns.forEach(a => {
+        quoteDetails += `- ${a.name} ($${a.setup} setup, $${a.monthly}/month)\n`;
+      });
+    }
+
+    if (quoteDetails) {
+        quoteDetails += `\n----------------------------------\n`;
+        quoteDetails += `Total Estimated Setup Cost: $${totalSetup.toLocaleString()}\n`;
+        quoteDetails += `Total Estimated Monthly Retainer: $${totalMonthly.toLocaleString()}/month\n`;
+        quoteDetails += `----------------------------------\n\n`;
+    }
+
+    const subject = `New Quote Request from ${name}`;
+    const body = `Name: ${name}\nEmail: ${email}\nWebsite: ${website}\n\nMessage:\n${message}\n\n--- Quote Details ---\n${quoteDetails}`;
     window.location.href = `mailto:aiautomatrix@outlook.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
   };
 
@@ -28,7 +100,7 @@ export default function ContactSection() {
             Get In <span className="text-gradient">Touch</span>
           </h2>
           <p className="text-lg text-muted-foreground mt-4 max-w-2xl mx-auto">
-            Have a project in mind? We'd love to hear from you.
+            Have a project in mind? We'd love to hear from you. Fill out the form below or build your own quote.
           </p>
         </div>
         <Card className="card-glass p-8 md:p-12">
@@ -50,7 +122,7 @@ export default function ContactSection() {
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                 />
-                <Input 
+                 <Input 
                   type="url" 
                   placeholder="Your Website (optional)" 
                   className="bg-background/50"
@@ -64,12 +136,67 @@ export default function ContactSection() {
                   onChange={(e) => setMessage(e.target.value)}
                 />
                 <Button className="w-full btn-gradient" onClick={handleSendMessage}>
-                  Send Message
+                  Send Message & Quote
                 </Button>
               </div>
             </div>
             <div className="space-y-6">
               <h3 className="font-headline text-2xl font-bold mb-6">Contact Information</h3>
+               <Accordion type="single" collapsible className="w-full">
+                <AccordionItem value="item-1">
+                  <AccordionTrigger>
+                    <div className="flex items-center gap-2">
+                        <Calculator className="h-6 w-6 text-primary" />
+                        <span className="font-headline text-xl">Build Your Custom Quote</span>
+                    </div>
+                  </AccordionTrigger>
+                  <AccordionContent className="pt-4">
+                    <div className="space-y-6">
+                      <div>
+                        <h4 className="font-semibold mb-2">Core Service Package</h4>
+                        <RadioGroup value={selectedPackage} onValueChange={setSelectedPackage}>
+                          {pricingData.packages.map(pkg => (
+                            <div key={pkg.id} className="flex items-center space-x-2">
+                              <RadioGroupItem value={pkg.id} id={pkg.id} />
+                              <Label htmlFor={pkg.id} className="flex flex-col">
+                                <span>{pkg.name} (${pkg.setup} + ${pkg.monthly}/mo)</span>
+                                <span className="text-xs text-muted-foreground">{pkg.description}</span>
+                              </Label>
+                            </div>
+                          ))}
+                        </RadioGroup>
+                      </div>
+                       <div>
+                        <h4 className="font-semibold mb-2">Agent & Workflow Add-Ons</h4>
+                        <div className="space-y-2">
+                          {pricingData.addOns.map(addOn => (
+                             <div key={addOn.id} className="flex items-center space-x-2">
+                               <Checkbox 
+                                id={addOn.id} 
+                                checked={selectedAddOns[addOn.id] || false}
+                                onCheckedChange={(checked) => handleAddOnToggle(addOn.id, !!checked)}
+                               />
+                               <Label htmlFor={addOn.id} className="flex flex-col">
+                                 <span>{addOn.name} (+${addOn.setup} setup, +${addOn.monthly}/mo)</span>
+                                </Label>
+                             </div>
+                          ))}
+                        </div>
+                       </div>
+                      <div className="border-t border-border pt-4 space-y-2">
+                        <div className="flex justify-between items-center font-bold">
+                          <span>One-Time Setup Cost:</span>
+                          <span>${totalSetup.toLocaleString()}</span>
+                        </div>
+                        <div className="flex justify-between items-center font-bold">
+                          <span>Monthly Retainer:</span>
+                          <span>${totalMonthly.toLocaleString()}/month</span>
+                        </div>
+                      </div>
+                    </div>
+                  </AccordionContent>
+                </AccordionItem>
+              </Accordion>
               <div className="flex items-center space-x-4">
                 <MapPin className="h-6 w-6 text-primary" />
                 <p className="text-muted-foreground">Winnipeg, Manitoba, Canada</p>
@@ -81,16 +208,6 @@ export default function ContactSection() {
               <div className="flex items-center space-x-4">
                 <Mail className="h-6 w-6 text-primary" />
                 <p className="text-muted-foreground">aiautomatrix@outlook.com</p>
-              </div>
-              <div className="w-full h-64 rounded-lg overflow-hidden mt-6">
-                 <iframe
-                    className="w-full h-full"
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d164432.82565259952!2d-97.2867299977894!3d49.8527863152637!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x52ea73fbf91a2b11%3A0x2b2a1afac6b9ca64!2sWinnipeg%2C%20MB%2C%20Canada!5e0!3m2!1sen!2sus!4v1700000000001"
-                    style={{ border: 0 }}
-                    allowFullScreen={true}
-                    loading="lazy"
-                    referrerPolicy="no-referrer-when-downgrade"
-                  ></iframe>
               </div>
             </div>
           </div>
