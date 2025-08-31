@@ -11,19 +11,34 @@ export const metadata: Metadata = {
 const chatScripts = `
   <html>
     <head>
+      <script src="https://cdn.botpress.cloud/webchat/v3.2/inject.js"><\/script>
       <style>
-        html, body {
-          height: 100%;
-          width: 100%;
-          margin: 0;
-          padding: 0;
-          overflow: hidden;
+        html, body, #webchat, #webchat .bpWebchat {
+          position: unset !important;
+          width: 100% !important;
+          height: 100% !important;
+          max-height: 100% !important;
+          max-width: 100% !important;
+          margin: 0 !important;
+          padding: 0 !important;
+          overflow: hidden !important;
+        }
+        #webchat .bp-widget-widget {
+            display: none !important;
         }
       </style>
     </head>
     <body>
-      <script src="https://cdn.botpress.cloud/webchat/v3.2/inject.js"><\/script>
       <script src="https://files.bpcontent.cloud/2025/08/30/16/20250830161104-Z9HVOH4J.js" defer><\/script>
+      <script>
+        window.addEventListener('load', function() {
+            if(window.botpress){
+                window.botpress.on("webchat:ready", () => {
+                  window.botpress.open();
+                });
+            }
+        });
+      <\/script>
     </body>
   </html>
 `;
