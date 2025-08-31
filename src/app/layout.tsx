@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import './globals.css';
 import { Toaster } from '@/components/ui/toaster';
+import Analytics from '@/components/analytics';
 
 export const metadata: Metadata = {
   title: 'Ai Automatrix',
@@ -27,6 +28,7 @@ export default function RootLayout({
         />
       </head>
       <body className="font-body antialiased bg-background overflow-x-hidden">
+        <Analytics />
         {children}
         <Toaster />
         <script src="https://cdn.botpress.cloud/webchat/v3.2/inject.js"></script>
