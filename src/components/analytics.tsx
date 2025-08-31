@@ -2,7 +2,7 @@
 
 import Script from "next/script";
 
-const GA_TRACKING_ID = "G-XXXXXXXXXX"; // Replace with your own GA Measurement ID
+const GA_TRACKING_ID = "G-1HMVGS6MW4"; // Replace with your own GA Measurement ID
 
 export default function Analytics() {
   // You can add a check here to only render the script in production
