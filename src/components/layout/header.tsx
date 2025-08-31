@@ -13,18 +13,10 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
 
-const coreServiceLinks = [
-  { href: '/services/web-design', label: 'Web Design' },
-  { href: '/services/web-development', label: 'Web Development' },
-  { href: '/services/seo-optimization', label: 'SEO Optimization' },
-  { href: '/services/digital-marketing', label: 'Digital Marketing' },
-];
-
 const aiServiceLinks = [
   { href: '/services/custom-botpress-agent', label: 'Custom Botpress Agent' },
   { href: '/services/ai-powered-website-building', label: 'AI-Powered Websites' },
-  { href: '/services/ai-backend-development', label: 'AI Backend Development' },
-]
+];
 
 const navLinks = [
   { href: '/#about', label: 'About' },
@@ -36,11 +28,6 @@ const navLinks = [
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-
-  const activeAiServices = [
-    { href: '/services/custom-botpress-agent', label: 'Custom Botpress Agent' },
-    { href: '/services/ai-powered-website-building', label: 'AI-Powered Websites' },
-  ];
 
   return (
     <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
@@ -60,13 +47,6 @@ export default function Header() {
               <DropdownMenuContent>
                 <p className="px-2 py-1.5 text-xs font-semibold text-muted-foreground">AI SOLUTIONS</p>
                 {aiServiceLinks.map((link) => (
-                  <DropdownMenuItem key={link.href} asChild>
-                    <Link href={link.href}>{link.label}</Link>
-                  </DropdownMenuItem>
-                ))}
-                <DropdownMenuSeparator />
-                 <p className="px-2 py-1.5 text-xs font-semibold text-muted-foreground">CORE SERVICES</p>
-                {coreServiceLinks.map((link) => (
                   <DropdownMenuItem key={link.href} asChild>
                     <Link href={link.href}>{link.label}</Link>
                   </DropdownMenuItem>
@@ -117,7 +97,7 @@ export default function Header() {
                     </div>
                     <nav className="flex flex-col p-4 space-y-4 overflow-y-auto">
                       <p className="text-muted-foreground text-sm font-semibold">SERVICES</p>
-                      {activeAiServices.map((link) => (
+                      {aiServiceLinks.map((link) => (
                         <Link
                           key={link.href}
                           href={link.href}
