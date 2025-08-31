@@ -4,8 +4,8 @@ import BotDemoPageLayout from "@/components/layout/bot-demo-page-layout";
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Customer Service Agent Demo | Ai Automatrix',
-  description: 'Live demo of a Botpress agent that answers FAQs, books appointments, and simplifies customer support.',
+  title: 'AI Website Scraper & FAQ Bot Demo | Ai Automatrix',
+  description: 'Live demo of a Botpress agent that scrapes any website URL to instantly create a knowledgeable customer service FAQ chatbot.',
 };
 
 const chatScripts = `
@@ -33,10 +33,10 @@ export default function CustomerServiceAgentPage() {
     <>
       <Header />
       <BotDemoPageLayout
-        title={<>Customer Service <span className="text-gradient">Agent</span></>}
-        subtitle="Answers FAQs, books appointments, and makes support simple."
-        description="This agent is designed to be the first point of contact for your customers. It can handle frequently asked questions, schedule appointments directly into a calendar, and escalate complex issues to a human agent, all while providing a seamless and friendly user experience."
-        examplePrompts={["When are you open?", "Book me an appointment for Thursday."]}
+        title={<>AI Website <span className="text-gradient">Scraper Bot</span></>}
+        subtitle="Instantly create a customer service agent from your website URL."
+        description="This powerful agent demonstrates how AI can scrape an entire website to build a knowledge base automatically. Just provide a URL, and the agent will learn the content to answer customer questions, acting as a 24/7 support expert for that business."
+        examplePrompts={["Scrape aiautomatrix.com", "What services does the website offer?", "When is the business open?"]}
         iframeSrcDoc={chatScripts}
       />
       <Footer />
