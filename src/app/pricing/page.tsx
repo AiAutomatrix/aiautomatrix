@@ -16,19 +16,42 @@ export const metadata: Metadata = {
 const customerServiceScripts = `
   <html>
     <head>
+      <script src="https://cdn.botpress.cloud/webchat/v3.2/inject.js"></script>
       <style>
-        html, body {
-          height: 100%;
+        html, body, #webchat, #webchat .bpWebchat {
+          position: unset;
           width: 100%;
+          height: 100%;
+          max-height: 100%;
+          max-width: 100%;
           margin: 0;
           padding: 0;
           overflow: hidden;
         }
+
+        #webchat .bpFab {
+          display: none;
+        }
       </style>
     </head>
     <body>
-      <script src="https://cdn.botpress.cloud/webchat/v3.2/inject.js"><\/script>
-      <script src="https://files.bpcontent.cloud/2025/08/26/22/20250826221413-HL4C5ZIZ.js" defer><\/script>
+      <div id="webchat"></div>
+      <script>
+        window.botpress.on("webchat:ready", () => {
+          window.botpress.open();
+        });
+        window.botpress.init({
+            "botId": "18f21915-4682-43b6-96b0-23a7897c88e5",
+            "clientId": "32515431-8f2c-4b68-b70b-4e868997dee2",
+            "hostUrl": "https://cdn.botpress.cloud/webchat/v3.2",
+            "messagingUrl": "https://messaging.botpress.cloud",
+            "botName": "Ai Automatrix",
+            "botAvatar": "https://files.bpcontent.cloud/2025/08/25/23/20250825233445-HHEIOG4O.png",
+            "stylesheet": "https://files.bpcontent.cloud/2025/08/26/22/20250826221413-HL4C5ZIZ.js",
+            "composerPlaceholder": "Ask a question about Ai Automatrix...",
+            "selector": "#webchat"
+        });
+      </script>
     </body>
   </html>
 `;
@@ -36,19 +59,41 @@ const customerServiceScripts = `
 const ecommerceScripts = `
   <html>
     <head>
-      <style>
-        html, body {
-          height: 100%;
+      <script src="https://cdn.botpress.cloud/webchat/v3.2/inject.js"></script>
+       <style>
+        html, body, #webchat, #webchat .bpWebchat {
+          position: unset;
           width: 100%;
+          height: 100%;
+          max-height: 100%;
+          max-width: 100%;
           margin: 0;
           padding: 0;
           overflow: hidden;
         }
+
+        #webchat .bpFab {
+          display: none;
+        }
       </style>
     </head>
     <body>
-      <script src="https://cdn.botpress.cloud/webchat/v3.2/inject.js"><\/script>
-      <script src="https://files.bpcontent.cloud/2025/08/30/16/20250830162418-UY2C9Y08.js" defer><\/script>
+       <div id="webchat"></div>
+       <script>
+        window.botpress.on("webchat:ready", () => {
+          window.botpress.open();
+        });
+        window.botpress.init({
+            "botId": "bb23edc3-5525-45ea-8255-a4b52b7617df",
+            "clientId": "6a9e144a-874e-4f36-9626-44d47ad6111f",
+            "hostUrl": "https://cdn.botpress.cloud/webchat/v3.2",
+            "messagingUrl": "https://messaging.botpress.cloud",
+            "botName": "E-commerce Agent",
+            "stylesheet": "https://files.bpcontent.cloud/2025/08/30/16/20250830162418-UY2C9Y08.js",
+            "composerPlaceholder": "How can I help you shop today?",
+            "selector": "#webchat"
+        });
+      </script>
     </body>
   </html>
 `;
