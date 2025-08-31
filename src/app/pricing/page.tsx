@@ -280,34 +280,36 @@ export default function PricingPage() {
                                 Interact with our live demos to experience the power of AI-driven conversation firsthand.
                             </p>
                         </div>
-                        <Tabs defaultValue="customer-service" className="w-full max-w-4xl mx-auto">
-                            <TabsList className="grid w-full grid-cols-2">
-                                <TabsTrigger value="customer-service">Customer Service Bot</TabsTrigger>
-                                <TabsTrigger value="ecommerce">E-commerce Assistant</TabsTrigger>
-                            </TabsList>
-                            <TabsContent value="customer-service">
-                                <Card className="card-glass p-2 mt-4">
-                                    <div className="rounded-lg overflow-hidden border border-border/20">
-                                        <iframe
-                                            srcDoc={customerServiceScripts}
-                                            className="w-full h-[600px] md:h-[700px] border-0 rounded-md"
-                                            title="Customer Service Demo"
-                                        ></iframe>
-                                    </div>
-                                </Card>
-                            </TabsContent>
-                            <TabsContent value="ecommerce">
-                                <Card className="card-glass p-2 mt-4">
-                                    <div className="rounded-lg overflow-hidden border border-border/20">
-                                        <iframe
-                                            srcDoc={ecommerceScripts}
-                                            className="w-full h-[600px] md:h-[700px] border-0 rounded-md"
-                                            title="E-commerce Demo"
-                                        ></iframe>
-                                    </div>
-                                </Card>
-                            </TabsContent>
-                        </Tabs>
+                        <div className="flex justify-center">
+                          <Tabs defaultValue="customer-service" className="w-full max-w-sm">
+                              <TabsList className="grid w-full grid-cols-2">
+                                  <TabsTrigger value="customer-service">Customer Service Bot</TabsTrigger>
+                                  <TabsTrigger value="ecommerce">E-commerce Assistant</TabsTrigger>
+                              </TabsList>
+                              <TabsContent value="customer-service">
+                                  <Card className="card-glass p-2 mt-4">
+                                      <div className="rounded-lg overflow-hidden border border-border/20">
+                                          <iframe
+                                              srcDoc={customerServiceScripts}
+                                              className="w-full h-[600px] border-0 rounded-md"
+                                              title="Customer Service Demo"
+                                          ></iframe>
+                                      </div>
+                                  </Card>
+                              </TabsContent>
+                              <TabsContent value="ecommerce">
+                                  <Card className="card-glass p-2 mt-4">
+                                      <div className="rounded-lg overflow-hidden border border-border/20">
+                                          <iframe
+                                              srcDoc={ecommerceScripts}
+                                              className="w-full h-[600px] border-0 rounded-md"
+                                              title="E-commerce Demo"
+                                          ></iframe>
+                                      </div>
+                                  </Card>
+                              </TabsContent>
+                          </Tabs>
+                        </div>
                          <div className="text-center mt-12">
                              <Link href="/bot-demos">
                                 <Button variant="outline">
