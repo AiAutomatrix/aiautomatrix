@@ -1,5 +1,22 @@
 # Botpress AI Agent Development Pricing & Packages
 
+This document outlines the pricing structure and strategy for Ai Automatrix's Botpress agent development services.
+
+---
+
+## How It Works: Our 3-Step Process
+
+From your existing website to a fully functional AI agent, our process is designed to be fast, simple, and seamless.
+
+- **Step 1: We Scrape Your Website**
+  We analyze your website's content, sitemap, and structure to understand your business, services, and brand voice.
+
+- **Step 2: We Build Your Custom Agent**
+  Using the scraped data, we build and train a custom AI agent that can answer customer questions and capture leads accurately.
+
+- **Step 3: We Put It Live**
+  We provide you with a single line of code to embed the AI agent on your website. No technical hassle, just results.
+
 ---
 
 ## Core Agent Packages
@@ -51,3 +68,10 @@
 - **Automated Reporting:** AI compiles data from workflows or APIs into structured reports
 
 ---
+
+## Suggested Sales Funnel Strategy
+
+1.  **Lead Magnet:** Offer a free AI audit of a potential client's website to demonstrate the value and impact of automation.
+2.  **Entry Offer:** Present the Basic Website Agent as a competitive and accessible entry point to prove the value of your service.
+3.  **Upsell Path:** Once the initial value is established, introduce additional workflow tools, API integrations, and multi-agent expansions as natural next steps to solve more of their business problems.
+4.  **Retention:** Maintain clients on monthly retainers by providing ongoing optimization, performance monitoring, and introducing new workflow capabilities over time.
