@@ -28,7 +28,7 @@ const customerServiceScripts = `
 
   <html>
     <head>
-      <script src="https://cdn.botpress.cloud/webchat/v3.2/inject.js"><\/script>
+      <script src="https://cdn.botpress.cloud/webchat/v3.2/inject.js"></script>
       <style>
         html, body, #webchat, #webchat .bpWebchat {
           position: unset !important;
@@ -46,7 +46,7 @@ const customerServiceScripts = `
       </style>
     </head>
     <body>
-      <script src="https://files.bpcontent.cloud/2025/08/26/22/20250826221413-HL4C5ZIZ.js" defer><\/script>
+      <script src="https://files.bpcontent.cloud/2025/08/26/22/20250826221413-HL4C5ZIZ.js" defer></script>
       <script>
         window.addEventListener('load', function() {
             if(window.botpress){
@@ -55,14 +55,14 @@ const customerServiceScripts = `
                 });
             }
         });
-      <\/script>
+      </script>
     </body>
   </html>
 `;
 const ecommerceScripts = `
   <html>
     <head>
-      <script src="https://cdn.botpress.cloud/webchat/v3.2/inject.js"><\/script>
+      <script src="https://cdn.botpress.cloud/webchat/v3.2/inject.js"></script>
       <style>
         html, body, #webchat, #webchat .bpWebchat {
           position: unset !important;
@@ -80,7 +80,7 @@ const ecommerceScripts = `
       </style>
     </head>
     <body>
-       <script src="https://files.bpcontent.cloud/2025/08/30/16/20250830162418-UY2C9Y08.js" defer><\/script>
+       <script src="https://files.bpcontent.cloud/2025/08/30/16/20250830162418-UY2C9Y08.js" defer></script>
        <script>
         window.addEventListener('load', function() {
           if(window.botpress){
@@ -89,7 +89,7 @@ const ecommerceScripts = `
             });
           }
         });
-      <\/script>
+      </script>
     </body>
   </html>
 `;
@@ -427,21 +427,21 @@ export default function PricingPageClient() {
                 we remove the blockers that slow growth.
               </p>
             </div>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               {commonBottlenecks.map((b) => (
-                <Card key={b.problem} className="card-glass p-6">
-                  <CardHeader className="flex items-center gap-4">
-                    <CheckCircle className="h-8 w-8 text-primary" />
-                    <CardTitle className="font-headline text-xl font-bold">
-                      {b.problem}
-                    </CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <p className="text-muted-foreground mb-4">{b.impact}</p>
-                    <div className="font-semibold">Our fix</div>
-                    <p className="text-muted-foreground">{b.solution}</p>
-                  </CardContent>
-                </Card>
+                <div key={b.problem} className="bg-gradient-to-br from-primary to-accent p-0.5 rounded-lg transform transition-transform duration-300 hover:-translate-y-2 hover:shadow-2xl hover:shadow-primary/40">
+                  <Card className="card-glass p-6 flex flex-col w-full h-full bg-card/95">
+                    <CardHeader className="flex items-start gap-4 p-0 mb-4">
+                      <CheckCircle className="h-8 w-8 text-primary flex-shrink-0 mt-1" />
+                      <CardTitle className="font-headline text-xl font-bold">{b.problem}</CardTitle>
+                    </CardHeader>
+                    <CardContent className="p-0">
+                      <p className="text-muted-foreground mb-4">{b.impact}</p>
+                      <div className="font-semibold text-foreground/90">Our fix:</div>
+                      <p className="text-muted-foreground">{b.solution}</p>
+                    </CardContent>
+                  </Card>
+                </div>
               ))}
             </div>
           </div>
@@ -736,3 +736,5 @@ export default function PricingPageClient() {
     </div>
   );
 }
+
+    
