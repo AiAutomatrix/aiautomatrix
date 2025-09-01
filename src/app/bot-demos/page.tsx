@@ -86,20 +86,22 @@ export default function BotDemosHubPage() {
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               {demoAgents.map((agent) => (
-                <Card key={agent.title} className="card-glass text-center p-6 transform transition-transform duration-300 hover:-translate-y-2 flex flex-col w-full">
-                  <CardHeader className="flex-shrink-0 flex justify-center items-center">
-                    {agent.icon}
-                  </CardHeader>
-                  <CardContent className="flex flex-col flex-grow items-center">
-                    <h3 className="font-headline text-2xl font-bold mb-2">{agent.title}</h3>
-                    <p className="text-muted-foreground flex-grow mb-6">{agent.description}</p>
-                    <Link href={agent.link} className="w-full mt-auto">
-                      <Button variant="outline" className="w-full group">
-                        View Demo <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
-                      </Button>
-                    </Link>
-                  </CardContent>
-                </Card>
+                <div key={agent.title} className="bg-gradient-to-br from-primary to-accent p-0.5 rounded-lg transform transition-transform duration-300 hover:-translate-y-2 hover:shadow-2xl hover:shadow-primary/40">
+                  <Card className="card-glass text-center p-6 flex flex-col w-full h-full bg-card/95">
+                    <CardHeader className="flex-shrink-0 flex justify-center items-center">
+                      {agent.icon}
+                    </CardHeader>
+                    <CardContent className="flex flex-col flex-grow items-center">
+                      <h3 className="font-headline text-2xl font-bold mb-2">{agent.title}</h3>
+                      <p className="text-muted-foreground flex-grow mb-6">{agent.description}</p>
+                      <Link href={agent.link} className="w-full mt-auto">
+                        <Button variant="outline" className="w-full group">
+                          View Demo <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+                        </Button>
+                      </Link>
+                    </CardContent>
+                  </Card>
+                </div>
               ))}
             </div>
 
