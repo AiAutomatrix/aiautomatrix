@@ -26,6 +26,33 @@ import {
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import ParticleWave from "@/components/sections/particle-wave";
 
+export const metadata: Metadata = {
+  title: "Pricing & Packages | Ai Automatrix",
+  description: "Custom Botpress AI agents that convert visitors into customers. Limited early-adopter seats + hands-on integrations. See plans & ROI.",
+  openGraph: {
+    title: "Pricing & Packages | Ai Automatrix",
+    description: "Custom Botpress AI agents that convert visitors into customers. Limited early-adopter seats + hands-on integrations.",
+    url: "https://www.aiautomatrix.com/pricing",
+    siteName: "Ai Automatrix",
+    images: [
+      {
+        url: "/og/pricing-og.png",
+        width: 1200,
+        height: 630,
+        alt: "Ai Automatrix Pricing",
+      },
+    ],
+    locale: "en_US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Ai Automatrix Pricing",
+    description: "Custom Botpress AI agents — from FAQ bots to full multi-agent automation. Early-adopter seats available.",
+    images: ["/og/pricing-og.png"],
+  },
+};
+
 /* ----------------------------- Existing script snippets kept -----------------------------*/
 const customerServiceScripts = `
 
@@ -623,7 +650,7 @@ export default function PricingPage() {
         {/* ROI + Testimonials + Live Demo */}
         <section className="py-20 md:py-24">
           <div className="container mx-auto px-4 grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
-            <div className="flex flex-col gap-8">
+             <div className="flex flex-col gap-8">
               <div className="card-glass p-6">
                 <h3 className="font-headline text-2xl font-bold mb-4">Quick ROI Calculator</h3>
                 <p className="text-muted-foreground mb-4">Estimate monthly revenue unlocked by capturing and qualifying more leads.</p>
@@ -758,3 +785,5 @@ export default function PricingPage() {
     </div>
   );
 }
+
+    
