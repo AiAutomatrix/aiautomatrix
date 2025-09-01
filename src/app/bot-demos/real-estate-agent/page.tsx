@@ -31,13 +31,16 @@ const chatScripts = `
     <body>
       <script src="https://mediafiles.botpress.cloud/your-placeholder-real-estate-bot/webchat/bot.html" defer><\/script>
       <script>
-        window.addEventListener('load', function() {
-            if(window.botpress){
-                window.botpress.on("webchat:ready", () => {
-                  window.botpress.open();
-                });
-            }
-        });
+        const initBotpress = () => {
+          if (window.botpress) {
+            window.botpress.on("webchat:ready", () => {
+              window.botpress.open();
+            });
+          } else {
+            setTimeout(initBotpress, 200);
+          }
+        };
+        initBotpress();
       <\/script>
     </body>
   </html>

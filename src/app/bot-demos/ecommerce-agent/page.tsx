@@ -31,13 +31,16 @@ const chatScripts = `
     <body>
       <script src="https://files.bpcontent.cloud/2025/08/30/16/20250830162418-UY2C9Y08.js" defer><\/script>
       <script>
-        window.addEventListener('load', function() {
-            if(window.botpress){
-                window.botpress.on("webchat:ready", () => {
-                  window.botpress.open();
-                });
-            }
-        });
+        const initBotpress = () => {
+          if (window.botpress) {
+            window.botpress.on("webchat:ready", () => {
+              window.botpress.open();
+            });
+          } else {
+            setTimeout(initBotpress, 200);
+          }
+        };
+        initBotpress();
       <\/script>
     </body>
   </html>
