@@ -25,7 +25,6 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import ParticleWave from "@/components/sections/particle-wave";
 
 const customerServiceScripts = `
-
   <html>
     <head>
       <script src="https://cdn.botpress.cloud/webchat/v3.2/inject.js"></script>
@@ -48,13 +47,16 @@ const customerServiceScripts = `
     <body>
       <script src="https://files.bpcontent.cloud/2025/08/26/22/20250826221413-HL4C5ZIZ.js" defer></script>
       <script>
-        window.addEventListener('load', function() {
-            if(window.botpress){
-                window.botpress.on("webchat:ready", () => {
-                  window.botpress.open();
-                });
-            }
-        });
+        const initBotpress = () => {
+          if (window.botpress) {
+            window.botpress.on("webchat:ready", () => {
+              window.botpress.open();
+            });
+          } else {
+            setTimeout(initBotpress, 200);
+          }
+        };
+        initBotpress();
       </script>
     </body>
   </html>
@@ -82,13 +84,16 @@ const ecommerceScripts = `
     <body>
        <script src="https://files.bpcontent.cloud/2025/08/30/16/20250830162418-UY2C9Y08.js" defer></script>
        <script>
-        window.addEventListener('load', function() {
-          if(window.botpress){
-             window.botpress.on("webchat:ready", () => {
-                window.botpress.open();
+        const initBotpress = () => {
+          if (window.botpress) {
+            window.botpress.on("webchat:ready", () => {
+              window.botpress.open();
             });
+          } else {
+            setTimeout(initBotpress, 200);
           }
-        });
+        };
+        initBotpress();
       </script>
     </body>
   </html>
@@ -604,7 +609,7 @@ export default function PricingPageClient() {
 
         <section className="py-20 md:py-24">
           <div className="container mx-auto px-4 grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
-             <div className="flex flex-col gap-8">
+            <div className="flex flex-col gap-8">
               <div className="card-glass p-6">
                 <h3 className="font-headline text-2xl font-bold mb-4">Quick ROI Calculator</h3>
                 <p className="text-muted-foreground mb-4">Estimate monthly revenue unlocked by capturing and qualifying more leads.</p>
@@ -629,7 +634,7 @@ export default function PricingPageClient() {
                   </div>
                 </div>
               </div>
-              <div>
+               <div>
                 <h3 className="font-headline text-2xl font-bold">What Clients Say</h3>
                 <p className="text-muted-foreground mt-2">Short, outcome-focused testimonials from early adopters.</p>
               </div>
@@ -736,5 +741,3 @@ export default function PricingPageClient() {
     </div>
   );
 }
-
-    
