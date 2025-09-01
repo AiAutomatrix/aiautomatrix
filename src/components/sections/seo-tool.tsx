@@ -1,3 +1,4 @@
+
 "use client";
 
 import { useState } from 'react';
@@ -62,49 +63,51 @@ export default function SeoToolSection() {
           </p>
         </div>
         <div className="max-w-3xl mx-auto">
-          <Card className="card-glass">
-            <CardContent className="p-6 md:p-8">
-              <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
-                <Textarea
-                  {...register('businessDescription')}
-                  placeholder="e.g., 'We are a family-owned bakery in San Francisco specializing in artisanal sourdough bread and custom cakes...'"
-                  className="bg-background/50 min-h-[150px] text-base"
-                />
-                {errors.businessDescription && (
-                  <p className="text-sm text-destructive">{errors.businessDescription.message}</p>
-                )}
-                <Button type="submit" disabled={isLoading} className="w-full btn-gradient">
-                  {isLoading ? (
-                    <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-                  ) : (
-                    <Wand2 className="mr-2 h-4 w-4" />
+          <div className="bg-gradient-to-br from-primary to-accent p-0.5 rounded-lg shadow-2xl shadow-primary/20">
+            <Card className="card-glass bg-card/95">
+              <CardContent className="p-6 md:p-8">
+                <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
+                  <Textarea
+                    {...register('businessDescription')}
+                    placeholder="e.g., 'We are a family-owned bakery in San Francisco specializing in artisanal sourdough bread and custom cakes...'"
+                    className="bg-background/50 min-h-[150px] text-base"
+                  />
+                  {errors.businessDescription && (
+                    <p className="text-sm text-destructive">{errors.businessDescription.message}</p>
                   )}
-                  Generate Suggestions
-                </Button>
-              </form>
+                  <Button type="submit" disabled={isLoading} className="w-full btn-gradient">
+                    {isLoading ? (
+                      <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                    ) : (
+                      <Wand2 className="mr-2 h-4 w-4" />
+                    )}
+                    Generate Suggestions
+                  </Button>
+                </form>
 
-              {seoResult && (
-                <div className="mt-8 space-y-6 animate-in fade-in-50 duration-500">
-                  <div>
-                    <h3 className="font-headline text-xl font-bold mb-3">Suggested Keywords</h3>
-                    <div className="flex flex-wrap gap-2">
-                      {seoResult.keywords.map((keyword, index) => (
-                        <Badge key={index} variant="secondary" className="text-sm py-1 px-3">
-                          {keyword}
-                        </Badge>
-                      ))}
+                {seoResult && (
+                  <div className="mt-8 space-y-6 animate-in fade-in-50 duration-500">
+                    <div>
+                      <h3 className="font-headline text-xl font-bold mb-3">Suggested Keywords</h3>
+                      <div className="flex flex-wrap gap-2">
+                        {seoResult.keywords.map((keyword, index) => (
+                          <Badge key={index} variant="secondary" className="text-sm py-1 px-3">
+                            {keyword}
+                          </Badge>
+                        ))}
+                      </div>
+                    </div>
+                    <div>
+                      <h3 className="font-headline text-xl font-bold mb-3">Optimized Meta Description</h3>
+                      <Card className="bg-background/50 p-4">
+                        <p className="text-muted-foreground italic">{seoResult.metaDescription}</p>
+                      </Card>
                     </div>
                   </div>
-                  <div>
-                    <h3 className="font-headline text-xl font-bold mb-3">Optimized Meta Description</h3>
-                    <Card className="bg-background/50 p-4">
-                      <p className="text-muted-foreground italic">{seoResult.metaDescription}</p>
-                    </Card>
-                  </div>
-                </div>
-              )}
-            </CardContent>
-          </Card>
+                )}
+              </CardContent>
+            </Card>
+          </div>
         </div>
       </div>
     </section>
