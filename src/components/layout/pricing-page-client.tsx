@@ -293,7 +293,7 @@ export default function PricingPageClient() {
       const days = Math.floor(diff / (1000 * 60 * 60 * 24));
       const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
       const mins = Math.floor((diff / (1000 * 60)) % 60);
-      setTimeLeft(\`\${days}d \${hours}h \${mins}m\`);
+      setTimeLeft(`${days}d ${hours}h ${mins}m`);
     }, 1000 * 30);
 
     const s = setInterval(() => {
@@ -519,11 +519,11 @@ export default function PricingPageClient() {
               {packages.map((pkg) => (
                 <Card
                   key={pkg.name}
-                  className={\`card-glass flex flex-col \${
+                  className={`card-glass flex flex-col ${
                     pkg.popular
                       ? "border-primary shadow-lg shadow-primary/20"
                       : ""
-                  }\`}
+                  }`}
                 >
                   {pkg.popular && (
                     <div className="text-center py-1 bg-primary text-primary-foreground font-bold text-sm rounded-t-lg">
@@ -572,9 +572,9 @@ export default function PricingPageClient() {
 
                     <Link href="/#contact" className="w-full mt-auto">
                       <Button
-                        className={\`w-full \${
+                        className={`w-full ${
                           pkg.popular ? "btn-gradient" : ""
-                        }\`}
+                        }`}
                         variant={pkg.popular ? "default" : "outline"}
                       >
                         Get Started
@@ -624,8 +624,8 @@ export default function PricingPageClient() {
 
                   <div className="mt-4 p-4 rounded bg-secondary/10">
                     <div className="text-sm">Estimated monthly revenue from captured leads</div>
-                    <div className="text-2xl font-bold mt-1">$\${monthlyRevenueEstimate.toLocaleString()}</div>
-                    <div className="text-xs text-muted-foreground mt-1">(based on {leadsPerDay} leads/day • {closeRate}% close • $\${avgOrder} AOV)</div>
+                    <div className="text-2xl font-bold mt-1">${monthlyRevenueEstimate.toLocaleString()}</div>
+                    <div className="text-xs text-muted-foreground mt-1">(based on {leadsPerDay} leads/day • {closeRate}% close • ${avgOrder} AOV)</div>
                   </div>
                 </div>
               </div>
